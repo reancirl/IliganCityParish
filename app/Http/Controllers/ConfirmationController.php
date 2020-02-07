@@ -58,7 +58,7 @@ class ConfirmationController extends Controller
 
     public function show($id)
     {
-        $confirmation = Confirmation::find($id);
+        $confirmation = Confirmation::findorFail($id);
         return view('pages.confirmation_show', compact('confirmation'));
     }
 

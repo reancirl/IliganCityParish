@@ -23,7 +23,7 @@ Route::get('/confirmation','ConfirmationController@index');
 Route::get('/addConfirmation', function () {
     return view('pages.confirmation_add');
 });
-Route::get('/confirmation/{baptismal_id}/create','ConfirmationController@create');
+Route::get('/confirmation/{id}/create','ConfirmationController@create');
 Route::post('/confirmation/{id}','ConfirmationController@store');
 Route::get('/confirmation/{id}','ConfirmationController@show');
 Route::get('/confirmation/{id}/edit','ConfirmationController@edit');
@@ -32,10 +32,6 @@ Route::patch('/confirmation/{id}','ConfirmationController@update');
 					//Marriage//
 ////////////////////////////////////////////////////////////
 Route::get('/marriage','MarriageController@index');
-Route::get('/addMarriage', function () {
-    return view('pages.marriage_add');
-});
-// Route::get('/addMarriage/{baptismal_id}', function () {
-//     return view('pages.marriage_wife');
-// });
-Route::get('/addMarriage/{baptismal_id}','MarriageController@createHusband');
+Route::get('/husband','MarriageController@searchHusband');
+Route::get('/husband/{id}','MarriageController@createHusband');
+Route::post('/marriage/{id}','MarriageController@storeHusband');

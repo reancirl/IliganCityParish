@@ -20,9 +20,7 @@ Route::patch('/baptismal/{id}','BaptismalController@update');
 					//Confirmation//
 ////////////////////////////////////////////////////////////
 Route::get('/confirmation','ConfirmationController@index');
-Route::get('/addConfirmation', function () {
-    return view('pages.confirmation_add');
-});
+Route::get('/addConfirmation','ConfirmationController@searchBaptismal');
 Route::get('/confirmation/{id}/create','ConfirmationController@create');
 Route::post('/confirmation/{id}','ConfirmationController@store');
 Route::get('/confirmation/{id}','ConfirmationController@show');

@@ -26,7 +26,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
 		  <div class="card-body">
-		    <table class="table" id="marriage">
+		    <table class="table table-hover table-bordered rounded" id="marriage">
 		      <thead>
 		      	<tr>
 		      		<th>ID</th>

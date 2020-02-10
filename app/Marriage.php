@@ -12,9 +12,4 @@ class Marriage extends Model
     {
     	return $this->belongsTo('App\Husband');
     }
-
-    public function wife()
-    {
-    	return $this->belongsTo('App\Wife');
-    }
 }

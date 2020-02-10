@@ -24,7 +24,7 @@
 	<div class="col-sm-12 grid-margin stretch-card">
 		<div class="card">
 		  <div class="card-body">
-		    <table class="table" id="baptismal">
+		    <table class="table table-hover table-bordered rounded" id="baptismal">
 		      <thead>
 		      	<tr>
 		      		<th>ID</th>
@@ -47,7 +47,7 @@
                     <td>{{$baptismal->gender}}</td>
 		      		<td>
 		      			<a href="/baptismal/{{$baptismal->id}}">
-		      				<button class="btn btn-outline-primary" >Complete Record</button>
+		      				<button class="btn btn-outline-primary" >View Record</button>
 		      			</a>
 		      		</td>
 		      	</tr>

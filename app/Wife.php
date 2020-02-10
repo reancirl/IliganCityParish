@@ -9,12 +9,8 @@ class Wife extends Model
 	protected $guarded = [];
 	public $timestamps = false;
 	
-    public function marriage()
+    public function husband()
     {
-        return $this->hasOne('App\Marriage');
-    }
-    public function confirmation()
-    {
-    	return $this->belongsTo('App\Confirmation');
+        return $this->hasOne('App\Husband');
     }
 }

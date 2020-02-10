@@ -19,7 +19,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
 		  <div class="card-body">
-		    <table class="table" id="addConfirmation">
+		    <table class="table table-hover table-bordered rounded" id="addConfirmation">
 		      <thead>
 		      	<tr>
 		      		<th>Name</th>

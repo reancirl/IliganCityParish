@@ -25,7 +25,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
 		  <div class="card-body">
-		    <table class="table" id="confirmation">
+		    <table class="table table-hover table-bordered rounded" id="confirmation">
 		      <thead>
 		      	<tr>
 		      		<th>ID</th>
@@ -48,7 +48,7 @@
                     <td>{{$confirmation->baptismal->gender}}</td>
 		      		<td>
 		      			<a href="/confirmation/{{$confirmation->id}}">
-		      				<button class="btn btn-outline-primary" >Complete Record</button>
+		      				<button class="btn btn-outline-primary" >View Record</button>
 		      			</a>
 		      		</td>
 		      	</tr>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Confirmation;
-use Illuminate\Http\Request;
 use App\Baptismal;
+use App\Confirmation;
 use App\ConfirmationSponsor;
+use Illuminate\Http\Request;
 
 class ConfirmationController extends Controller
 {
@@ -14,6 +14,12 @@ class ConfirmationController extends Controller
     {
         $confirmation = Confirmation::all();
         return view('pages.confirmation',compact('confirmation'));
+    }
+
+    public function searchBaptismal()
+    {
+        $baptismal = Baptismal::all();
+        return view('pages.confirmation_add', compact('baptismal'));
     }
 
     public function create($id)

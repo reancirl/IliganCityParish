@@ -20,7 +20,7 @@
 		<div class="card">
 		  <div class="card-body">
 		  	<h3 class="text-center "><strong>Male Confirmation Records</strong></h3>
-		    <table class="table" id="male">
+		    <table class="table table-hover table-bordered rounded" id="male">
 		      <thead>
 		      	<tr>
 		      		<th>Name</th>

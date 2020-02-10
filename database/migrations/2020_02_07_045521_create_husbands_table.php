@@ -20,8 +20,9 @@ class CreateHusbandsTable extends Migration
             $table->string('parents_marriage_place');
             $table->string('status');
             $table->string('education');
-            $table->UnsignedBiginteger('confirmation_id');
-            $table->foreign('confirmation_id')->references('id')->on('confirmations');
+
+            $table->UnsignedBiginteger('wife_id');
+            $table->foreign('wife_id')->references('id')->on('wives');
         });
     }
 

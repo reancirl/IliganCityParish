@@ -18,6 +18,40 @@ class MarriageController extends Controller
         return view('pages.marriage',compact('marriage'));
     }
 
+    public function searchWife()
+    {
+        $confirmation = Confirmation::all();
+        return view('pages.marriage_searchWife', compact('confirmation'));
+    }
+
+    public function createWife($id)
+    {
+        $confirmation = Confirmation::findorFail($id);
+        return view('pages.marriage_createWife', compact('confirmation'));
+    }
+
+    public function storeWife(Request $request, $id)
+    {
+        $this->validate($request , [
+            'updated_parents_type_of_marriage' => 'required',
+            'parents_marriage_place' => 'required',
+            'status'=>'required',
+            'education'=>'required',
+        ]);
+
+        $confirmation = Confirmation::findorFail($id);
+        $husband = new Husband();
+
+        $husband->confirmation_id = $confirmation->id;
+        $husband->updated_parents_type_of_marriage = $request->updated_parents_type_of_marriage;
+        $husband->parents_marriage_place = $request->parents_marriage_place;
+        $husband->status = $request->status;
+        $husband->education = $request->education;
+        $husband->save();
+
+        return redirect()->to('husband/'.$id);
+    }
+
     public function searchHusband()
     {
         $confirmation = Confirmation::all();
@@ -27,7 +61,7 @@ class MarriageController extends Controller
     public function createHusband($id)
     {
         $confirmation = Confirmation::findorFail($id);
-        return view('pages.marriage_storeHusband', compact('confirmation'));
+        return view('pages.marriage_createHusband', compact('confirmation'));
     }
 
     public function storeHusband(Request $request, $id)
@@ -50,21 +84,6 @@ class MarriageController extends Controller
         $husband->save();
 
         return redirect ('/marriage');
-    }
-
-    public function searchWife($id)
-    {
-
-    }
-
-    public function createWife($id)
-    {
-
-    }
-
-    public function storeWife(Request $request)
-    {
-
     }
 
     public function store(Request $request)

@@ -21,8 +21,8 @@ class CreateWivesTable extends Migration
             $table->string('status');
             $table->string('education');
 
-            $table->UnsignedBiginteger('confirmation_id');
-            $table->foreign('confirmation_id')->references('id')->on('confirmations');
+            // $table->UnsignedBiginteger('confirmation_id');
+            // $table->foreign('confirmation_id')->references('id')->on('confirmations');
         });
     }
 

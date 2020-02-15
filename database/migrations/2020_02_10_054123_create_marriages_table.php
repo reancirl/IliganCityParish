@@ -17,8 +17,8 @@ class CreateMarriagesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->UnsignedBiginteger('husband_id');
-            $table->foreign('husband_id')->references('id')->on('husbands');
+            // $table->UnsignedBiginteger('husband_id');
+            // $table->foreign('husband_id')->references('id')->on('husbands');
         });
     }
 

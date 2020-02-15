@@ -5,7 +5,7 @@
 @section('content')
 
 <h2>Marriage Records</h2>
-	<a href="/husband">
+	<a href="/wife">
       <button type="button" class="btn btn-outline-primary">
       	<i class="typcn typcn-plus"></i>Add Record
       </button>

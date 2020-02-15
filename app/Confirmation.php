@@ -16,10 +16,6 @@ class Confirmation extends Model
     {
         return $this->hasMany('App\ConfirmationSponsor');
     }
-    public function husband()
-    {
-        return $this->hasOne('App\Husband');
-    }
     public function wife()
     {
         return $this->hasOne('App\Wife');

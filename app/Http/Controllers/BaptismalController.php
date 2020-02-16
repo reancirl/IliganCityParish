@@ -11,7 +11,8 @@ class BaptismalController extends Controller
 
     public function index()
     {
-        return view('pages.baptismal');
+        $baptismal = Baptismal::all();
+        return view('pages.baptismal',compact('baptismal'));
     }
 
     public function create()

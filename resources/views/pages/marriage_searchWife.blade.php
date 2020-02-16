@@ -30,14 +30,14 @@
 		      </thead>
 		      <tbody>
 		      	@foreach($confirmation as $confirmation)
-		      		@if($confirmation->baptismal->gender == 'Female' and is_null($confirmation->husband))
+		      		@if($confirmation->baptismal->gender == 'Female' and is_null($confirmation->wife))
 		      			<tr>
 	                        <td>
-	                        	{{$confirmation->baptismal->last_name}}, 						{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 
+	                        	{{$confirmation->baptismal->last_name}},{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 
 	                        </td>
 	                    	<td>{{$confirmation->baptismal->date_of_birth}}</td>
 	                    	<td>
-	                      		<a href="/wife/{{$confirmation->id}}">
+	                      		<a href="/marriage/wife/{{$confirmation->id}}">
 	                        		<button class="btn btn-outline-primary" >This Record</button>
 	                      		</a>
 	                    	</td>

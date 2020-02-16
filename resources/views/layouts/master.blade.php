@@ -133,7 +133,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/marriage">
-                <i class="menu-icon typcn typcn-th-large-outline"></i>
+                <i class="menu-icon typcn typcn-bell"></i>
                 <span class="menu-title">Marriage</span>
               </a>
             </li>

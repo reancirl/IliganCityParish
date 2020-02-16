@@ -16,9 +16,12 @@ class CreateMarriagesTable extends Migration
         Schema::create('marriages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('date');
 
-            // $table->UnsignedBiginteger('husband_id');
-            // $table->foreign('husband_id')->references('id')->on('husbands');
+            $table->UnsignedBiginteger('husband_id');
+            $table->foreign('husband_id')->references('id')->on('husbands');
+            $table->UnsignedBiginteger('wife_id');
+            $table->foreign('wife_id')->references('id')->on('wives');
         });
     }
 

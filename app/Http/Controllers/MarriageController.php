@@ -21,7 +21,8 @@ class MarriageController extends Controller
     public function searchWife()
     {
         $confirmation = Confirmation::all();
-        return view('pages.marriage_searchWife', compact('confirmation'));
+        $wife = Wife::all();
+        return view('pages.marriage_searchWife', compact('confirmation','wife'));
     }
 
     public function createWife($id)
@@ -40,31 +41,36 @@ class MarriageController extends Controller
         ]);
 
         $confirmation = Confirmation::findorFail($id);
-        $husband = new Husband();
+        $wife = new Wife();
 
-        $husband->confirmation_id = $confirmation->id;
-        $husband->updated_parents_type_of_marriage = $request->updated_parents_type_of_marriage;
-        $husband->parents_marriage_place = $request->parents_marriage_place;
-        $husband->status = $request->status;
-        $husband->education = $request->education;
-        $husband->save();
+        $wife->confirmation_id = $confirmation->id;
+        $wife->updated_parents_type_of_marriage = $request->updated_parents_type_of_marriage;
+        $wife->parents_marriage_place = $request->parents_marriage_place;
+        $wife->status = $request->status;
+        $wife->education = $request->education;
+        $wife->save();
 
-        return redirect()->to('husband/'.$id);
+        $wifeId = $wife->id;
+
+        return redirect('/marriage/husband/'.$wifeId);
     }
 
-    public function searchHusband()
+    public function searchHusband($id)
     {
+        $wife = Wife::findorFail($id);
         $confirmation = Confirmation::all();
-        return view('pages.marriage_searchHusband', compact('confirmation'));
+        return view('pages.marriage_searchHusband', compact('confirmation','wife'));
     }
     
-    public function createHusband($id)
+    public function createHusband($wifeId,$id)
     {
+        $marriage = Marriage::all();
+        $wife = Wife::findorFail($wifeId);
         $confirmation = Confirmation::findorFail($id);
-        return view('pages.marriage_createHusband', compact('confirmation'));
+        return view('pages.marriage_createHusband', compact('confirmation', 'wife','marriage'));
     }
 
-    public function storeHusband(Request $request, $id)
+    public function storeHusband(Request $request, $wifeId, $id)
     {
         $this->validate($request , [
             'updated_parents_type_of_marriage' => 'required',
@@ -74,6 +80,8 @@ class MarriageController extends Controller
         ]);
 
         $confirmation = Confirmation::findorFail($id);
+        $wife = Wife::findorFail($wifeId);
+        $wId = $wife->id;
         $husband = new Husband();
 
         $husband->confirmation_id = $confirmation->id;
@@ -83,12 +91,37 @@ class MarriageController extends Controller
         $husband->education = $request->education;
         $husband->save();
 
-        return redirect ('/marriage');
+        $husbandId = $husband->id;
+
+        // return redirect ('/marriage/create/'.$wifeId.'/'.$husbandId);
+        return redirect ('/marriage/create/'.$wId.'/'.$husbandId);
     }
 
-    public function store(Request $request)
+    public function create($wifeId,$husbandId)
     {
+        $wife = Wife::findorFail($wifeId);
+        $husband = Husband::findorFail($husbandId);
+        return view('pages.marriage_create', compact('husband','wife'));
+    }
 
+    public function store(Request $request,$wifeId,$husbandId)
+    {
+        $this->validate($request , [
+            'date' => 'required'
+        ]);
+
+        $marriage = new Marriage();
+        $marriage->date = $request->date;
+        $husband = Husband::findorFail($husbandId);
+        $marriage->husband_id = $husband->id;
+        $wife = Wife::findorFail($wifeId);
+        $marriage->wife_id = $wife->id;
+
+        $marriage->save();
+
+        $marriageId = $marriage->id;
+
+        return redirect('/marriage')->with('message','Marriage Record Added!');
     }
 
     public function show(Marriage $marriage)

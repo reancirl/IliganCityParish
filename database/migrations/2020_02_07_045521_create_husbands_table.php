@@ -16,13 +16,13 @@ class CreateHusbandsTable extends Migration
         Schema::create('husbands', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            // $table->string('updated_parents_type_of_marriage');
-            // $table->string('parents_marriage_place');
-            // $table->string('status');
-            // $table->string('education');
+            $table->string('updated_parents_type_of_marriage');
+            $table->string('parents_marriage_place');
+            $table->string('status');
+            $table->string('education');
 
-            // $table->UnsignedBiginteger('wife_id');
-            // $table->foreign('wife_id')->references('id')->on('wives');
+            $table->UnsignedBiginteger('confirmation_id');
+            $table->foreign('confirmation_id')->references('id')->on('confirmations');
         });
     }
 

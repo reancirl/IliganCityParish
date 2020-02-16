@@ -3,11 +3,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix' => 'baptismal'], function() {
 	Route::get('/','BaptismalController@index')->name('baptismal.index');
 	Route::get('/create','BaptismalController@create')->name('baptismal.create');
@@ -26,13 +24,15 @@ Route::group(['prefix' => 'confirmation'], function() {
 	Route::get('/{id}/edit','ConfirmationController@edit')->name('confimation.edit');;
 	Route::patch('/{id}','ConfirmationController@update')->name('confimation.update');;
 });
-////////////////////////////////////////////////////////////
-					//Marriage//
-////////////////////////////////////////////////////////////
-Route::get('/marriage','MarriageController@index');
-Route::get('/wife','MarriageController@searchWife');
-Route::get('/wife/{id}','MarriageController@createWife');
-Route::post('/husband/{id}','MarriageController@storeWife');
-// Route::get('/husband','MarriageController@searchHusband');
-// Route::get('/husband/{id}','MarriageController@createHusband');
-// Route::post('/marriage/{id}','MarriageController@storeHusband');
+
+Route::group(['prefix' => 'marriage'], function() {
+	Route::get('/','MarriageController@index');
+	Route::get('/wife','MarriageController@searchWife');
+	Route::get('/wife/{id}','MarriageController@createWife');
+	Route::post('/husband/{id}','MarriageController@storeWife');
+	Route::get('/husband/{id}','MarriageController@searchHusband');
+	Route::get('/husband/{wife}/{confirmation}','MarriageController@createHusband');
+	Route::post('/create/{wife}/{confirmation}','MarriageController@storeHusband');
+	Route::get('/create/{wife}/{confirmation}','MarriageController@create');
+	Route::post('/{wife}/{husband}', 'MarriageController@store');
+});

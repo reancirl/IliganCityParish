@@ -4,18 +4,48 @@
 
 @section('content')
 
-<h2>Add Marriage Record</h2>
+<!-- <a href="#!">
+	<button type="button" class="btn btn-outline-primary">
+	  	<i class="typcn typcn-arrow-left"></i>Go Back
+	</button>
+</a> -->
 
-<a href="/marriage">
-    <button type="button" class="btn btn-outline-primary">
-      	<i class="typcn typcn-arrow-left"></i>Go Back
-    </button>
-  </a>
+  <h3>Bride info</h3>
+	<div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control"value="{{$wife->confirmation->baptismal->last_name}}, {{$wife->confirmation->baptismal->first_name}} {{$wife->confirmation->baptismal->middle_name}}" readonly>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label for="date_of_birth">Status</label>
+            <input type="text" class="form-control" readonly value="{{ $wife->status }}">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="gender">Parents Type of Marriage</label>
+            <input type="text" class="form-control" readonly value="{{ $wife->confirmation->baptismal->gender }}">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label>Education</label>
+            <input type="text" class="form-control" readonly value="{{ $wife->education }}">
+          </div>
+        </div>
+      </div>
 <hr style="border: 1px solid #0078ff;">
 <div class="alert alert-primary" role="alert">
-	<strong>1st step</strong>: Search for Male Confirmation Records
+	<strong>3st step</strong>: Search for Male Confirmation Records
 </div>
-
 <div class="col grid-margin stretch-card">
 		<div class="card">
 		  <div class="card-body">
@@ -33,11 +63,11 @@
 		      		@if($confirmation->baptismal->gender == 'Male' and is_null($confirmation->husband))
 		      			<tr>
 	                        <td>
-	                        	{{$confirmation->baptismal->last_name}}, 						{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 
+	                        	{{$confirmation->baptismal->last_name}},{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 
 	                        </td>
 	                    	<td>{{$confirmation->baptismal->date_of_birth}}</td>
 	                    	<td>
-	                      		<a href="/husband/{{$confirmation->id}}">
+	                      		<a href="/marriage/husband/{{$wife->id}}/{{$confirmation->id}}">
 	                        		<button class="btn btn-outline-primary" >This Record</button>
 	                      		</a>
 	                    	</td>

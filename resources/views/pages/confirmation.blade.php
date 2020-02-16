@@ -5,7 +5,7 @@
 @section('content')
 
 <h2>Confirmation Records</h2>
-	<a href="/addConfirmation">
+	<a href="/confirmation/addConfirmation">
       <button type="button" class="btn btn-outline-primary">
       	<i class="typcn typcn-plus"></i>Add Record
       </button>

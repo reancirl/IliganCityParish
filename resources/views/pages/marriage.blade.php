@@ -5,7 +5,7 @@
 @section('content')
 
 <h2>Marriage Records</h2>
-	<a href="/wife">
+	<a href="/marriage/wife">
       <button type="button" class="btn btn-outline-primary">
       	<i class="typcn typcn-plus"></i>Add Record
       </button>
@@ -40,9 +40,10 @@
 		      	@foreach($marriage as $marriage)
 		      	<tr>
 		      		<td>{{$marriage->id}}</td>
-		      		<td>{{$marriage->husband_name}}</td>
-                    <td>{{$marriage->wife_name}}</td>
-                    <td>{{$marriage->date_of_birth}}</td>
+		      		<td>{{$marriage->husband->confirmation->baptismal->last_name}}, {{$marriage->husband->confirmation->baptismal->first_name}} {{$marriage->husband->confirmation->baptismal->middle_name}}</td>
+
+                    <td>{{$marriage->wife->confirmation->baptismal->last_name}}, {{$marriage->wife->confirmation->baptismal->first_name}} {{$marriage->wife->confirmation->baptismal->middle_name}}</td>
+                    <td>{{$marriage->date}}</td>
 		      		<td>
 		      			<a href="/marriage/{{$marriage->id}}">
 		      				<button class="btn btn-outline-primary" >Complete Record</button>

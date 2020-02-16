@@ -6,7 +6,7 @@
 
 <h2>Add Marriage Record</h2>
 
-<a href="/wife">
+<a href="/marriage/wife">
     <button type="button" class="btn btn-outline-primary">
       <i class="typcn typcn-arrow-left"></i>Go Back
     </button>
@@ -56,7 +56,7 @@
           </div>
         </div>
       </div>
-<form method="POST" action="/husband/{{$wife->id}}">
+<form method="POST" action="/marriage/husband/{{$confirmation->id}}">
       {{@csrf_field()}}
 
       <div class="row">

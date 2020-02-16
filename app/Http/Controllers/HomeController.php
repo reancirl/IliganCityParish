@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Marriage;
+use App\Baptismal;
+use App\Confirmation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $baptismal = Baptismal::all();
+        $confirmation = Confirmation::all();
+        $marriage = Marriage::all();
+        return view('home', compact('baptismal', 'confirmation', 'marriage'));
     }
 }

@@ -20,4 +20,8 @@ class Confirmation extends Model
     {
         return $this->hasOne('App\Wife');
     }
+    public function husband()
+    {
+        return $this->hasOne('App\Husband');
+    }
 }

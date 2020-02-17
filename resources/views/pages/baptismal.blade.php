@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Baptismal Record')
+@section('title','Baptismal')
 
 @section('content')
 	<h2>Baptismal Records</h2>

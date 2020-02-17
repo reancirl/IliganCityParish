@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Confirmation Record')
+@section('title','Confirmation')
 
 @section('content')
 

@@ -6,7 +6,7 @@
 
 <h2>Add Confirmation Record</h2>
 <div class="alert alert-primary" role="alert">
-	First step: Search for the Existing Baptismal Record
+	Search for the Existing Baptismal Record
 </div>
 
 <a href="/confirmation">

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<!-- <a href="#!">
+<!-- <a href="/marriage/wife/{{$wife->id}}">
 	<button type="button" class="btn btn-outline-primary">
 	  	<i class="typcn typcn-arrow-left"></i>Go Back
 	</button>
@@ -44,7 +44,7 @@
       </div>
 <hr style="border: 1px solid #0078ff;">
 <div class="alert alert-primary" role="alert">
-	<strong>3st step</strong>: Search for Male Confirmation Records
+	Search for Male Confirmation Records
 </div>
 <div class="col grid-margin stretch-card">
 		<div class="card">
@@ -60,7 +60,7 @@
 		      </thead>
 		      <tbody>
 		      	@foreach($confirmation as $confirmation)
-		      		@if($confirmation->baptismal->gender == 'Male' and is_null($confirmation->husband))
+		      		@if($confirmation->baptismal->gender == 'Male' and empty($confirmation->husband->marriage))
 		      			<tr>
 	                        <td>
 	                        	{{$confirmation->baptismal->last_name}},{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 

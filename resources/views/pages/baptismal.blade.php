@@ -43,7 +43,7 @@
 		      		<td>{{$baptismal->last_name}}</td>
                     <td>{{$baptismal->first_name}}</td>
                     <td>{{$baptismal->middle_name}}</td>
-                    <td>{{$baptismal->date_of_birth}}</td>
+                    <td>{{Carbon\Carbon::parse($baptismal->date_of_birth)->formatLocalized('%b %d, %Y')}}</td>
                     <td>{{$baptismal->gender}}</td>
 		      		<td>
 		      			<a href="/baptismal/{{$baptismal->id}}">

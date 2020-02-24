@@ -44,7 +44,7 @@
 		      		<td>{{$confirmation->baptismal->last_name}}</td>
                     <td>{{$confirmation->baptismal->first_name}}</td>
                     <td>{{$confirmation->baptismal->middle_name}}</td>
-                    <td>{{$confirmation->date_of_confirmation}}</td>
+                    <td>{{Carbon\Carbon::parse($confirmation->date_of_confirmation)->formatLocalized('%b %d, %Y')}}</td>
                     <td>{{$confirmation->baptismal->gender}}</td>
 		      		<td>
 		      			<a href="/confirmation/{{$confirmation->id}}">

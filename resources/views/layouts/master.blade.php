@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.addons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
@@ -87,14 +88,14 @@
             </li>
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="/home">
+              <a class="nav-link" href="{{ route('home') }}">
                 <i class="menu-icon typcn typcn-home-outline"></i>
                 <span class="menu-title">Home</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/baptismal">
+              <a class="nav-link" href="{{ route('baptismal.index') }}">
                 <i class="menu-icon typcn typcn-document"></i>
                 <span class="menu-title">Baptismal</span>
                 <!-- <i class="menu-arrow"></i> -->
@@ -113,7 +114,7 @@
               </div> -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/confirmation">
+              <a class="nav-link" href="{{ route('confirmation.index') }}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Confirmation</span>
                <!--  <i class="menu-arrow"></i> -->
@@ -132,7 +133,7 @@
               </div> -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/marriage">
+              <a class="nav-link" href="{{ route('marriage.index') }}">
                 <i class="menu-icon typcn typcn-bell"></i>
                 <span class="menu-title">Marriage</span>
               </a>

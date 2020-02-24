@@ -5,7 +5,11 @@
 @section('content')
 
 <h2>Add Marriage Record</h2>
-
+<a href="/marriage/husband/{{$wife->id}}">
+  <button type="button" class="btn btn-outline-primary">
+    <i class="typcn typcn-arrow-left"></i>Go Back
+  </button>
+</a>
 <hr style="border: 1px solid #0078ff;">
 
 @if(count($errors)>0)
@@ -17,10 +21,10 @@
 @endif
 
 <div class="alert alert-primary" role="alert">
-	<strong>4th step</strong>: Fill in all the required fields
+	Fill in all the required fields
 </div>
 <h3>Personal Details</h3>
-<div class="row">
+      <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="name">Name</label>

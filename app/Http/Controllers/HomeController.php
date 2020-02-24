@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Marriage;
 use App\Baptismal;
 use App\Confirmation;
@@ -30,5 +31,9 @@ class HomeController extends Controller
         $confirmation = Confirmation::all();
         $marriage = Marriage::all();
         return view('home', compact('baptismal', 'confirmation', 'marriage'));
+    }
+    public function createPDF(){
+        $pdf = PDF::loadView('weeklyPDF');
+        return $pdf->download('weekly_report.pdf');
     }
 }

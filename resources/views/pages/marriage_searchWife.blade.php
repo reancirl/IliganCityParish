@@ -13,7 +13,7 @@
   </a>
 <hr style="border: 1px solid #0078ff;">
 <div class="alert alert-primary" role="alert">
-	<strong>1st step</strong>: Search for Female Confirmation Record
+	Search for Female Confirmation Record
 </div>
 
 <div class="col grid-margin stretch-card">
@@ -30,7 +30,7 @@
 		      </thead>
 		      <tbody>
 		      	@foreach($confirmation as $confirmation)
-		      		@if($confirmation->baptismal->gender == 'Female' and is_null($confirmation->wife))
+		      		@if($confirmation->baptismal->gender == 'Female' and empty($confirmation->wife->marriage))
 		      			<tr>
 	                        <td>
 	                        	{{$confirmation->baptismal->last_name}},{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 

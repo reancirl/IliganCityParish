@@ -43,7 +43,7 @@
 		      		<td>{{$marriage->husband->confirmation->baptismal->last_name}}, {{$marriage->husband->confirmation->baptismal->first_name}} {{$marriage->husband->confirmation->baptismal->middle_name}}</td>
 
                     <td>{{$marriage->wife->confirmation->baptismal->last_name}}, {{$marriage->wife->confirmation->baptismal->first_name}} {{$marriage->wife->confirmation->baptismal->middle_name}}</td>
-                    <td>{{$marriage->date}}</td>
+                    <td>{{Carbon\Carbon::parse($marriage->date)->formatLocalized('%b %d, %Y')}}</td>
 		      		<td>
 		      			<a href="/marriage/{{$marriage->id}}">
 		      				<button class="btn btn-outline-primary" >Complete Record</button>

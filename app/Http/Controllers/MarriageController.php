@@ -92,8 +92,6 @@ class MarriageController extends Controller
         $husband->save();
 
         $husbandId = $husband->id;
-
-        // return redirect ('/marriage/create/'.$wifeId.'/'.$husbandId);
         return redirect ('/marriage/create/'.$wId.'/'.$husbandId);
     }
 

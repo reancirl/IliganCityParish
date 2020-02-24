@@ -22,7 +22,7 @@
 @endif
 
 <div class="alert alert-primary" role="alert">
-	<strong>2nd step</strong>: Fill in all the required fields
+  Fill in all the required fields
 </div>
 <h3>Personal Details</h3>
 <div class="row">

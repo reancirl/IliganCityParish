@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    @yield('javaScript')
     @include('includes.scripts')
   </body>
+  @yield('javaScript')
 </html>

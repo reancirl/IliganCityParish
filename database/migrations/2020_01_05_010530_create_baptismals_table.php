@@ -19,7 +19,7 @@ class CreateBaptismalsTable extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
-            $table->string('date_of_birth');
+            $table->date('date_of_birth');
             $table->string('gender');
             $table->string('place_of_birth');
 
@@ -30,8 +30,8 @@ class CreateBaptismalsTable extends Migration
             $table->string('contact_number');
             $table->string('parents_type_of_marriage');
 
-            $table->string('date_of_attending_seminar');
-            $table->string('date_of_baptism');
+            $table->date('date_of_attending_seminar');
+            $table->date('date_of_baptism');
             $table->timestamps();
         });
     }

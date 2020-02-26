@@ -42,9 +42,16 @@
       	<div class="col">
 	        <div class="form-group">
 	          <label for="date">Date of Marriage</label>
-	          <input type="date" class="form-control" id="date date" name="date" placeholder="dd/mm/yyyy" required autocomplete="off" value="{{ old('date') }}">
+	          <input type="date" class="form-control" id="date" name="date" placeholder="dd/mm/yyyy" required autocomplete="off" value="{{ old('date') }}">
 	        </div>
 	      </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label for="date_of_seminar">Date of Marriage</label>
+            <input type="date_of_seminar" class="form-control" id="date_of_seminar" name="date_of_seminar" placeholder="dd/mm/yyyy" required autocomplete="off" value="{{ old('date_of_seminar') }}">
+          </div>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary btn-block btn-lg">Add Record</i></button>

@@ -32,8 +32,13 @@ class HomeController extends Controller
         $marriage = Marriage::all();
         return view('home', compact('baptismal', 'confirmation', 'marriage'));
     }
+
     public function createPDF(){
-        $pdf = PDF::loadView('weeklyPDF');
-        return $pdf->download('weekly_report.pdf');
+        return view('weeklyPDF');
     }
+
+    public function generatePDF(){
+        $pdf = PDF::loadView('generatePDF');
+        return $pdf->download('weekly_report.pdf');
+    }    
 }

@@ -43,9 +43,9 @@
 	    <button type="button" class="btn btn-outline-success btn-lg mb-3">
         <i class="mdi mdi-upload"></i>Import CSV for Communion First Record
 	    </button>
-	    <a href="/weeklyPDF">
+	    <a href="{{route('weeklyPDF')}}">
 	    	<button type="button" class="btn btn-outline-dark btn-lg mb-3">
-        		<i class="mdi mdi-file-document"></i>Generate PDF: Weekly Report
+        		<i class="mdi mdi-file-document"></i>Show/Generate PDF:Weekly Report
 	    	</button>
 	    </a>
 	    <button type="button" class="btn btn-outline-danger btn-lg">

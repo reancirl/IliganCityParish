@@ -15,13 +15,14 @@ class CreateMarriagesTable extends Migration
     {
         Schema::create('marriages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-            $table->string('date');
+            $table->date('date');
+            $table->date('date_of_seminar');
 
-            $table->UnsignedBiginteger('husband_id');
-            $table->foreign('husband_id')->references('id')->on('husbands');
+            $table->timestamps();
             $table->UnsignedBiginteger('wife_id');
+            $table->UnsignedBiginteger('husband_id');
             $table->foreign('wife_id')->references('id')->on('wives');
+            $table->foreign('husband_id')->references('id')->on('husbands');
         });
     }
 

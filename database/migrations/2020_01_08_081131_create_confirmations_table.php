@@ -15,11 +15,11 @@ class CreateConfirmationsTable extends Migration
     {
         Schema::create('confirmations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('date_of_seminar');
-            $table->string('date_of_confirmation');
-            $table->UnsignedBiginteger('baptismal_id');
+            $table->date('date_of_seminar');
+            $table->date('date_of_confirmation');
             $table->timestamps();
            
+            $table->UnsignedBiginteger('baptismal_id');
             $table->foreign('baptismal_id')->references('id')->on('baptismals');
         });
     }

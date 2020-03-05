@@ -33,6 +33,12 @@
         <span class="menu-title">Marriage</span>
       </a>
     </li>
+<!--     <li class="nav-item">
+      <a class="nav-link" href="{{ route('reports.index') }}">
+        <i class="menu-icon typcn typcn-th-large-outline"></i>
+        <span class="menu-title">Reports</span>
+      </a>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
         <i class="menu-icon typcn typcn-user-outline"></i>

@@ -6,12 +6,15 @@
 	<h3>{{$baptismal->first_name}} {{$baptismal->last_name}} baptismal record</h3>
 	<a href="/baptismal">
       <button type="button" class="btn btn-outline-primary">
+      	<i class="typcn typcn-arrow-left"></i>
         Go Back
       </button>
     </a>
     <div class="float-right">
 		<a href="/baptismal/{{$baptismal->id}}/edit">
-			<button type="button" class="btn btn-outline-primary">Edit Record</button>
+			<button type="button" class="btn btn-outline-primary">
+				<i class="typcn typcn-document"></i>Edit Record
+			</button>
 		</a>
 	</div>
 	<hr style="border: 1px solid #0078ff;">
@@ -36,7 +39,7 @@
 		    </tr>
 		     <tr>
 		      <th scope="row">Date of Birth</th>
-		      <td>{{$baptismal->date_of_birth}}</td>
+		      <td>{{Carbon\Carbon::parse($baptismal->date_of_birth)->formatLocalized('%b %d, %Y')}}</td>
 		    </tr>
 		     <tr>
 		      <th scope="row">Gender</th>
@@ -52,11 +55,11 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">Date of Seminar</th>
-		      <td>{{$baptismal->date_of_attending_seminar}}</td>
+		      <td>{{Carbon\Carbon::parse($baptismal->date_of_attending_seminar)->formatLocalized('%b %d, %Y')}}</td>
 		    </tr>
 		     <tr>
 		      <th scope="row">Date of Baptismal</th>
-		      <td>{{$baptismal->date_of_baptism}}</td>
+		      <td>{{Carbon\Carbon::parse($baptismal->date_of_baptism)->formatLocalized('%b %d, %Y')}}</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">Father's Name</th>
@@ -88,7 +91,7 @@
 
 		    <tr>
 		      <th scope="row">Created on</th>
-		      <td>{{$baptismal->created_at}}</td>
+		      <td>{{Carbon\Carbon::parse($baptismal->created_at)->formatLocalized('%b %d, %Y')}}</td>
 		    </tr>
 
 		  </tbody>

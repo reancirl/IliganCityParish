@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use PDF;
+use Carbon\Carbon;
 use App\Marriage;
 use App\Baptismal;
 use App\Confirmation;
@@ -33,12 +35,32 @@ class HomeController extends Controller
         return view('home', compact('baptismal', 'confirmation', 'marriage'));
     }
 
+    public function reportsindex()
+    {
+        return view('pages.reports');
+    }
+
     public function createPDF(){
-        return view('weeklyPDF');
+        $marriage = Marriage::with('husband')
+                    ->orderBy('created_at', 'desc')->get()
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('W');
+                    });
+        // return $marriage;
+        // $try =$marriage->first();
+        // return $try;
+        // return $marriage;
+        return view('weeklyPDF', compact('marriage'));
     }
 
     public function generatePDF(){
-        $pdf = PDF::loadView('generatePDF');
+         $marriage = Marriage::with('husband')
+                    ->orderBy('created_at', 'desc')->get()
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('W');
+                    })->take(1);
+        // return $marriage;
+        $pdf = PDF::loadView('generatePDF', compact('marriage'));
         return $pdf->download('weekly_report.pdf');
     }    
 }

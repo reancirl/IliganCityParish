@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="{{asset('assets/css/demo_1/style1.css')}}">
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="{{asset('beforeLogin/img/cross.png')}}" />
+    <style type="text/css">
+        hr{
+            border: 1px solid #0078ff;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,9 +39,17 @@
 		  <i class="typcn typcn-document"></i>Download PDF
 		</button>
 	</a>
-	<hr style="border: 1px solid #0078ff;" class="mt-2">
-	<div class="text-center">
-		<h1>Week 1</h1>
+	<hr class="mt-2">
+	<div>
+        <h2 class="">Current week</h2>
+        @foreach($marriage as $key=>$m)
+            <ol>
+                @foreach($m as $mar)
+                    <li>{{$mar->husband->confirmation->baptismal->last_name}}</li>
+                @endforeach
+            </ol>
+            <hr class="mt-2">
+        @endforeach
 	</div>
 </section>
 

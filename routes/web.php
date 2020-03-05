@@ -38,3 +38,7 @@ Route::group(['prefix' => 'marriage'], function() {
 	Route::get('/create/{wife}/{confirmation}','MarriageController@create')->name('marriage.create');
 	Route::post('/{wife}/{husband}', 'MarriageController@store')->name('marriage.store');
 });
+
+Route::group(['prefix' => 'reports'], function() {
+	Route::get('/','HomeController@reportsindex')->name('reports.index');
+});

@@ -21,8 +21,7 @@ class MarriageController extends Controller
     public function searchWife()
     {
         $confirmation = Confirmation::all();
-        $wife = Wife::all();
-        return view('pages.marriage_searchWife', compact('confirmation','wife'));
+        return view('pages.marriage_searchWife', compact('confirmation'));
     }
 
     public function createWife($id)
@@ -105,11 +104,13 @@ class MarriageController extends Controller
     public function store(Request $request,$wifeId,$husbandId)
     {
         $this->validate($request , [
-            'date' => 'required'
+            'date' => 'required',
+            'date_of_seminar' => 'required'
         ]);
 
         $marriage = new Marriage();
         $marriage->date = $request->date;
+        $marriage->date_of_seminar = $request->date_of_seminar;
         $husband = Husband::findorFail($husbandId);
         $marriage->husband_id = $husband->id;
         $wife = Wife::findorFail($wifeId);

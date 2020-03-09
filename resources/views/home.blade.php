@@ -78,7 +78,7 @@
 			<div class="card-report-1">
 				<h1 class="outline-report">Weekly Reports</h1>
 				<hr class="hr-width">
-				<h4 class="text-center">Total Number of Marriage this week: 10</h4>
+				<h4 class="text-center">Total Number of Marriage this week: {{count($countWeeklyMarriage)}}</h4>
 				<a href="{{route('weeklyPDF')}}">
 	    			<button type="button" class="btn btn-primary btn-lg btn-margin">
         				<i class="mdi mdi-file-document"></i>Show Weekly Reports
@@ -88,6 +88,12 @@
 			<div class="card-report-1">
 				<h1 class="outline-report">Yearly Reports</h1>
 				<hr class="hr-width">
+				<h4 class="text-center">Total Number of Confirmation this year: {{count($countYearly)}}</h4>
+				<a href="{{route('yearlyPDF')}}">
+					<button type="button" class="btn btn-primary btn-lg btn-margin">
+						<i class="mdi mdi-file-document"></i>Show current Year Reports
+					</button>
+				</a>
 			</div>
 		</div>
 
@@ -95,8 +101,32 @@
 			<div class="card-report">
 				<h1 class="outline-report">Monthly Reports</h1>
 				<hr class="hr-width">
-				<div class="text-center">
-					
+				<h4 class="text-center mb-3">Total number of Baptismal Record by Month:</h4>
+				<div class="ml-5">
+					<div class="row mb-2">
+						<div class="col-sm-6"><h4>January: </h4></div>
+						<div class="col-sm-5"><h4>February: </h4></div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-sm-6"><h4>March: </h4></div>
+						<div class="col-sm-5"><h4>April: </h4></div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-sm-6"><h4>May: </h4></div>
+						<div class="col-sm-5"><h4>June: </h4></div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-sm-6"><h4>July: </h4></div>
+						<div class="col-sm-5"><h4>August: </h4></div>	
+					</div>
+					<div class="row mb-2">
+						<div class="col-sm-6"><h4>September: </h4></div>
+						<div class="col-sm-5"><h4>October: </h4></div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-sm-6"><h4>November: </h4></div>
+						<div class="col-sm-5"><h4>December: </h4></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -121,7 +151,7 @@
 	</div>
 	<div class="col-sm-3">
 		<a href="#">
-			<button type="button" class="btn btn-outline-primary btn-lg mb-3">
+			<button type="button" class="btn btn-outline-primary btn-lg mb-2">
         		<i class="typcn typcn-plus"></i>Add First Communion Record
 	    	</button>
 		</a>

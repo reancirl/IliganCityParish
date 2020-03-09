@@ -7,6 +7,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/weeklyPDF','HomeController@createPDF')->name('weeklyPDF');
 Route::get('/generatePDF','HomeController@generatePDF')->name('generatePDF');
+Route::get('/yearlyPDF','HomeController@createYearlyPDF')->name('yearlyPDF');
 ////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix' => 'baptismal'], function() {
 	Route::get('/','BaptismalController@index')->name('baptismal.index');

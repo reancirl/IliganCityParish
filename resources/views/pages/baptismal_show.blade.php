@@ -21,8 +21,6 @@
 
 	<table class="table">
 		  <tbody>
-		 <div class="row">
-		 	<div class="col">
 		    <tr>
 		      <th scope="row">First Name</th>
 		      <td>{{$baptismal->first_name}}</td>
@@ -31,8 +29,6 @@
 		      <th scope="row">Last Name</th>
 		      <td>{{$baptismal->last_name}}</td>
 		    </tr>
-		    </div>
-		</div>
 		     <tr>
 		      <th scope="row">Middle Name</th>
 		      <td>{{$baptismal->middle_name}}</td>

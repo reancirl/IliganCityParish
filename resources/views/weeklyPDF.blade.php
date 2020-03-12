@@ -38,7 +38,7 @@
                 </button>
             </a>
             <table class="table table-hover table-bordered rounded">
-            <h2 class="text-center ml-5 mb-3">Current week report</h2>
+            <h2 class="text-center ml-5 mb-3">Latest week report</h2>
 
               <thead>
                 <tr>

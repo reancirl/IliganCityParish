@@ -19,28 +19,30 @@ class HomeController extends Controller
 
     public function index()
     {
-        $countWeeklyMarriage = Marriage::with('husband')
-                    ->orderBy('created_at', 'desc')->get()
+        $countWeeklyMarriage = Marriage::all()
+                    ->sortByDesc('created_at')
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('W');
-                    })->first();
-        $countYearly = Confirmation::with('baptismal')
-                    ->orderBy('created_at', 'desc')->get()
+                    })->take(1)->count();
+        // return $countWeeklyMarriage;
+        $countYearly = Confirmation::all()
+                    ->sortByDesc('created_at')
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
-        // $countMonthly = Baptismal::with('confirmation')
-        //             ->orderBy('created_at', 'desc')->get()
-        //             ->groupBy(function($date) {
-        //                 return Carbon::parse($date->created_at)->format('M');
-        //             })->take(1);
+                    })->take(1)->count();
+        $countMonthly = Baptismal::all()
+                    ->sortByDesc('created_at')
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('M');
+                    })->take(1)->count();
         // return $countMonthly;                  
-        $baptismal = Baptismal::all();
-        $confirmation = Confirmation::all();
-        $marriage = Marriage::all();
+        $baptismal = Baptismal::all()->count();
+        // return $baptismal;
+        $confirmation = Confirmation::all()->count();
+        $marriage = Marriage::all()->count();
 
 
-        return view('home', compact('baptismal', 'confirmation', 'marriage', 'countWeeklyMarriage', 'countYearly'));
+        return view('home', compact('baptismal', 'confirmation', 'marriage', 'countWeeklyMarriage', 'countYearly','countMonthly'));
     }
 
 
@@ -94,6 +96,27 @@ class HomeController extends Controller
         //             });
         // return $month;
         return view('pages.yearlyPDF', compact('marriage','confirmation', 'baptismal'));
+    }
+
+    public function generateYearlyPDF(){
+        $marriage = Marriage::with('husband')
+                    ->orderBy('created_at', 'desc')->get()
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+        $confirmation = Confirmation::with('baptismal')
+                    ->orderBy('created_at', 'desc')->get()
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+        $baptismal = Baptismal::with('confirmation')
+                    ->orderBy('created_at', 'desc')->get()
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+
+        $pdf = PDF::loadView('generateYearlyPDF', compact('marriage','confirmation', 'baptismal'));
+        return $pdf->download('yearly_report.pdf');
     }
 
     // public function reportsindex()

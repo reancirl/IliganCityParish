@@ -27,7 +27,7 @@
 		  <i class="typcn typcn-arrow-left"></i>Go Back
 		</button>
 	</a>
-	<a href="{{route('generatePDF')}}">
+	<a href="{{route('generateYearlyPDF')}}">
 		<button type="button" class="btn btn-success btn-lg float-right">
 		  <i class="typcn typcn-document"></i>Download report
 		</button>

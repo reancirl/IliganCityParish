@@ -49,19 +49,19 @@
 <div class="row mb-3">
 	<div class="col-sm-3">
 		<div class="total-record bg-1">
-            <div class="outline-1"><i class="mdi mdi-church"></i>{{ count($baptismal) }}</div>
+            <div class="outline-1"><i class="mdi mdi-church"></i>{{ $baptismal }}</div>
             <div class="outline-2">Total number of baptismal records</div>
         </div>
 	</div>
 	<div class="col-sm-3">
 		<div class="total-record bg-1">
-            <div class="outline-1"><i class="typcn typcn-document"></i>{{ count($confirmation) }}</div>
+            <div class="outline-1"><i class="typcn typcn-document"></i>{{ $confirmation }}</div>
             <div class="outline-2">Total number of confirmation records</div>
         </div>
 	</div>
 	<div class="col-sm-3">
 		<div class="total-record bg-1">
-            <div class="outline-1"><i class="mdi mdi-heart-box-outline"></i>{{ count($marriage) }}</div>
+            <div class="outline-1"><i class="mdi mdi-heart-box-outline"></i>{{ $marriage }}</div>
             <div class="outline-2">Total number of marriage records</div>
         </div>
 	</div>
@@ -78,7 +78,7 @@
 			<div class="card-report-1">
 				<h1 class="outline-report">Weekly Reports</h1>
 				<hr class="hr-width">
-				<h4 class="text-center">Total Number of Marriage this week: {{count($countWeeklyMarriage)}}</h4>
+				<h4 class="text-center">Total Number of Marriage on the latest week: {{$countWeeklyMarriage}}</h4>
 				<a href="{{route('weeklyPDF')}}">
 	    			<button type="button" class="btn btn-primary btn-lg btn-margin">
         				<i class="mdi mdi-file-document"></i>Show Weekly Reports
@@ -88,7 +88,7 @@
 			<div class="card-report-1">
 				<h1 class="outline-report">Yearly Reports</h1>
 				<hr class="hr-width">
-				<h4 class="text-center">Total Number of Confirmation this year: {{count($countYearly)}}</h4>
+				<h4 class="text-center">Total Number of Confirmation this year: {{$countYearly}}</h4>
 				<a href="{{route('yearlyPDF')}}">
 					<button type="button" class="btn btn-primary btn-lg btn-margin">
 						<i class="mdi mdi-file-document"></i>Show current Year Reports
@@ -103,30 +103,19 @@
 				<hr class="hr-width">
 				<h4 class="text-center mb-3">Total number of Baptismal Record by Month:</h4>
 				<div class="ml-5">
-					<div class="row mb-2">
-						<div class="col-sm-6"><h4>January: </h4></div>
-						<div class="col-sm-5"><h4>February: </h4></div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-sm-6"><h4>March: </h4></div>
-						<div class="col-sm-5"><h4>April: </h4></div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-sm-6"><h4>May: </h4></div>
-						<div class="col-sm-5"><h4>June: </h4></div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-sm-6"><h4>July: </h4></div>
-						<div class="col-sm-5"><h4>August: </h4></div>	
-					</div>
-					<div class="row mb-2">
-						<div class="col-sm-6"><h4>September: </h4></div>
-						<div class="col-sm-5"><h4>October: </h4></div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-sm-6"><h4>November: </h4></div>
-						<div class="col-sm-5"><h4>December: </h4></div>
-					</div>
+					<div class="row">
+						<div class="col-sm-6 mb-2"><h4>January: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>February: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>March: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>April: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>May: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>June: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>July: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>August: </h4></div>	
+						<div class="col-sm-6 mb-2"><h4>September: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>October: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>November: </h4></div>
+						<div class="col-sm-6 mb-2"><h4>December: </h4></div>
 				</div>
 			</div>
 		</div>

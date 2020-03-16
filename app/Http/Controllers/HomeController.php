@@ -54,7 +54,7 @@ class HomeController extends Controller
                     });
         $previous = $marriage->skip(1);
         $marriage = $marriage->take(1);
-        $count = $marriage->first();
+        $count = $marriage->take(1)->count();
         // return $previous;
 
         // return $marriage;
@@ -79,17 +79,17 @@ class HomeController extends Controller
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
+                    })->take(1)->count();
         $confirmation = Confirmation::with('baptismal')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
+                    })->take(1)->count();
         $baptismal = Baptismal::with('confirmation')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
+                    })->take(1)->count();
         // $month = $baptismal->sortBy('created_at')
         //             ->groupBy(function($date) {
         //                 return Carbon::parse($date->created_at)->format('M');
@@ -103,17 +103,17 @@ class HomeController extends Controller
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
+                    })->take(1)->count();
         $confirmation = Confirmation::with('baptismal')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
+                    })->take(1)->count();
         $baptismal = Baptismal::with('confirmation')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->first();
+                    })->take(1)->count();
 
         $pdf = PDF::loadView('generateYearlyPDF', compact('marriage','confirmation', 'baptismal'));
         return $pdf->download('yearly_report.pdf');

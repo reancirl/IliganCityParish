@@ -8,7 +8,7 @@ class Baptismal extends Model
 {
     protected $guarded = [];
 
-     public function confirmation()
+    public function confirmation()
     {
         return $this->hasOne('App\Confirmation');
     }

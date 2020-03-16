@@ -41,6 +41,11 @@ Route::group(['prefix' => 'marriage'], function() {
 	Route::post('/{wife}/{husband}', 'MarriageController@store')->name('marriage.store');
 });
 
+Route::group(['prefix' => 'users'], function() {
+	Route::get('/','UsersController@index')->name('users.index');
+	Route::get('/edit/{id}','UsersController@edit')->name('users.edit');
+});
+
 Route::group(['prefix' => 'reports'], function() {
 	Route::get('/','HomeController@reportsindex')->name('reports.index');
 });

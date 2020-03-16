@@ -12,7 +12,7 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ route('home') }}">
         <i class="menu-icon typcn typcn-home-outline"></i>
-        <span class="menu-title">Home</span>
+        <span class="menu-title">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
@@ -48,7 +48,7 @@
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="pages/samples/blank-page.html"> View Accounts </a>
+            <a class="nav-link" href="{{ route('users.index')}}"> User Management </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/samples/blank-page.html"> Change Password </a>

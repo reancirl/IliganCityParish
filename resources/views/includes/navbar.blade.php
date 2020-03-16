@@ -17,7 +17,7 @@
             <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name }}</p>
             <p class="font-weight-light text-muted mb-0">{{ Auth::user()->email }}</p>
           </div>
-          <a class="dropdown-item" href="#">View Accounts</a>
+          <a class="dropdown-item" href="{{ route('users.index')}}">User Management</a>
           <a class="dropdown-item" href="#">Change Password</a>
           <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">

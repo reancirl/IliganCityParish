@@ -19,23 +19,7 @@
         </style>
     </head>
     <body data-smooth-scroll-offset="77">
-        <div class="nav-container"> </div>
-        <div class="main-container">
-            <section class="height-100 imagebg text-center" data-overlay="4">
-                <div class="background-image-holder"><img alt="background" src="beforeLogin/img/first-bg.jpg"></div>
-                <div class="container pos-vertical-center">
-                    <div class="row">
-                        <div class="col-md-7 col-lg-5">
-                            <h2 class="outline-1"><STRONG>L O G I N</STRONG></h2>
-                            <p class="lead"></p>
-                            @yield('content')
-                            <!-- <span class="type--fine-print block">Dont have an account yet? <a href="page-accounts-create-1.html">Create account</a></span> -->
-                            <span class="type--fine-print block">Forgot your username or password? <a href="{{ route('password.request') }}">Recover account</a></span> 
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        @yield('content')
         <script src="stack/js/jquery-3.1.1.min.js"></script>
         <script src="stack/js/parallax.js"></script>
         <script src="stack/js/smooth-scroll.min.js"></script>

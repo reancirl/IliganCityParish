@@ -28,7 +28,7 @@
         </button>
     </a>
     <hr class="mt-2">
-    <h5 class="mb-2">Total number of marriage this week is ({{count($count)}})</h5>
+    <h5 class="mb-2">Total number of marriage this week is ({{ $count }})</h5>
         <div class="grid-margin stretch-card">
         <div class="card">
           <div class="card-body">

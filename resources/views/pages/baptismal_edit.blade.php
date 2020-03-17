@@ -7,7 +7,7 @@
 <h3>{{$baptismal->first_name}} {{$baptismal->last_name}} baptismal record</h3>
 	<a href="/baptismal/{{$baptismal->id}}">
     	<button type="button" class="btn btn-outline-primary">
-     		Go Back
+     		<i class="typcn typcn-arrow-left"></i>Go Back
     	</button>
   	</a>
 <hr style="border: 1px solid #0078ff;">

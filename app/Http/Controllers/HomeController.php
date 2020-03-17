@@ -23,24 +23,30 @@ class HomeController extends Controller
                     ->sortByDesc('created_at')
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('W');
-                    })->take(1)->count();
-        // return $countWeeklyMarriage;
+                    })->first();
+        if($countWeeklyMarriage == null){
+            $countWeeklyMarriage = [];
+        }
+        else $countWeeklyMarriage;
+
         $countYearly = Confirmation::all()
                     ->sortByDesc('created_at')
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($countYearly == null){
+            $countYearly = [];
+        }
+        else $countYearly;
+
         $countMonthly = Baptismal::all()
                     ->sortByDesc('created_at')
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('M');
-                    })->take(1)->count();
-        // return $countMonthly;                  
+                    })->first()->count();
         $baptismal = Baptismal::all()->count();
-        // return $baptismal;
         $confirmation = Confirmation::all()->count();
         $marriage = Marriage::all()->count();
-
 
         return view('home', compact('baptismal', 'confirmation', 'marriage', 'countWeeklyMarriage', 'countYearly','countMonthly'));
     }
@@ -54,7 +60,11 @@ class HomeController extends Controller
                     });
         $previous = $marriage->skip(1);
         $marriage = $marriage->take(1);
-        $count = $marriage->take(1)->count();
+        $count = $marriage->first();
+        if($count == null){
+            $count = [];
+        }
+        else $count->count();
         // return $previous;
 
         // return $marriage;
@@ -70,6 +80,10 @@ class HomeController extends Controller
         // return count($marriage);
         $marriage = $marriage->take(1);
         $count = $marriage->first();
+        if($count == null){
+            $count = [];
+        }
+        else $count->count();
         $pdf = PDF::loadView('generatePDF', compact('marriage','count'));
         return $pdf->download('weekly_report.pdf');
     }    
@@ -79,17 +93,31 @@ class HomeController extends Controller
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($marriage == null){
+            $marriage = [];
+        }
+        else $marriage;
         $confirmation = Confirmation::with('baptismal')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($confirmation == null){
+            $confirmation = 0;
+        }
+        else $confirmation;
         $baptismal = Baptismal::with('confirmation')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($baptismal == null){
+            $baptismal = [];
+        }
+        else $baptismal;
+        // return $baptismal->count();
+
         // $month = $baptismal->sortBy('created_at')
         //             ->groupBy(function($date) {
         //                 return Carbon::parse($date->created_at)->format('M');

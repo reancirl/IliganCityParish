@@ -4,7 +4,7 @@
       <a href="#" class="nav-link">
         <div class="text-wrapper">
           <p class="profile-name">{{ Auth::user()->email }}</p>
-          <p class="designation">Admin</p>
+          <p class="designation">{{ implode(', ',Auth::user()->roles()->get()->pluck('name')->toArray()) }}</p>
         </div>
       </a>
     </li>
@@ -47,9 +47,11 @@
       </a>
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
+          @can('super-admin')
           <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index')}}"> User Management </a>
           </li>
+          @endcan
           <li class="nav-item">
             <a class="nav-link" href="pages/samples/blank-page.html"> Change Password </a>
           </li>

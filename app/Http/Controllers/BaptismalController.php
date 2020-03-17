@@ -134,7 +134,7 @@ class BaptismalController extends Controller
         //             'sponsor_name'=>$request->sponsor_name[$item],
         //             'sponsor_gender'=>$request->sponsor_gender[$item]
         //             );
-        //         BaptismalSponsor::update($data2);
+        //         BaptismalSponsor::insert($data2);
         //     }
         // }
 

@@ -78,7 +78,7 @@
 			<div class="card-report-1">
 				<h1 class="outline-report">Weekly Reports</h1>
 				<hr class="hr-width">
-				<h4 class="text-center">Total Number of Marriage on the latest week: {{$countWeeklyMarriage}}</h4>
+				<h4 class="text-center">Total Number of Marriage on the latest week: {{ count($countWeeklyMarriage)}}</h4>
 				<a href="{{route('weeklyPDF')}}">
 	    			<button type="button" class="btn btn-primary btn-lg btn-margin">
         				<i class="mdi mdi-file-document"></i>Show Weekly Reports
@@ -88,7 +88,7 @@
 			<div class="card-report-1">
 				<h1 class="outline-report">Yearly Reports</h1>
 				<hr class="hr-width">
-				<h4 class="text-center">Total Number of Confirmation this year: {{$countYearly}}</h4>
+				<h4 class="text-center">Total Number of Confirmation this year: {{ count($countYearly)}}</h4>
 				<a href="{{route('yearlyPDF')}}">
 					<button type="button" class="btn btn-primary btn-lg btn-margin">
 						<i class="mdi mdi-file-document"></i>Show current Year Reports

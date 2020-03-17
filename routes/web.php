@@ -1,9 +1,5 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/weeklyPDF','HomeController@createPDF')->name('weeklyPDF');
 Route::get('/generatePDF','HomeController@generatePDF')->name('generatePDF');
@@ -41,11 +37,19 @@ Route::group(['prefix' => 'marriage'], function() {
 	Route::post('/{wife}/{husband}', 'MarriageController@store')->name('marriage.store');
 });
 
-Route::group(['prefix' => 'users'], function() {
+Route::prefix('users')->middleware('can:super-admin')->group(function(){
 	Route::get('/','UsersController@index')->name('users.index');
+	Route::get('/create','UsersController@create')->name('users.create');
+	Route::post('/store','UsersController@store')->name('users.store');
 	Route::get('/edit/{id}','UsersController@edit')->name('users.edit');
+	Route::patch('/edit/{id}','UsersController@update')->name('users.update');
 });
 
 Route::group(['prefix' => 'reports'], function() {
 	Route::get('/','HomeController@reportsindex')->name('reports.index');
 });
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Auth::routes(['register' => false]);

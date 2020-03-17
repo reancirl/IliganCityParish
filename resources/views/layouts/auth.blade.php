@@ -16,6 +16,12 @@
                 font-weight: bolder;
                 font-size: 3em;
             }
+            .card-1{
+                background-color: white;
+                padding: 1em 3em 1em 3em;
+                height: 23em;
+                border: 2px solid #0078ff;
+            }
         </style>
     </head>
     <body data-smooth-scroll-offset="77">

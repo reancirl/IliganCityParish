@@ -79,13 +79,23 @@ class BaptismalController extends Controller
     public function show($id)
     {
         $baptismal = Baptismal::findorFail($id);
-        return view('pages.baptismal_show', compact('baptismal'));
+        if(auth()->user()->church == $baptismal->place_of_baptism 
+        || auth()->user()->church == 'St.Michael The Archangel Parish' 
+        || auth()->user()->church == 'Super Admin') 
+        {
+            return view('pages.baptismal_show', compact('baptismal'));
+        } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
     }
 
     public function edit($id)
     {
         $baptismal = Baptismal::findorFail($id);
-        return view('pages.baptismal_edit', compact('baptismal'));
+        if(auth()->user()->church == $baptismal->place_of_baptism 
+        || auth()->user()->church == 'St.Michael The Archangel Parish' 
+        || auth()->user()->church == 'Super Admin') 
+        {
+            return view('pages.baptismal_edit', compact('baptismal'));
+        } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
     }
 
     public function update(Request $request, $id)
@@ -102,7 +112,7 @@ class BaptismalController extends Controller
             'date_of_baptism' => 'required|min:8',
             'fathers_name' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
             'mothers_maiden_name' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
-            'parents_address' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
+            'parents_address' => 'required',
             'contact_number' => 'required',
             'parents_type_of_marriage' => 'required',
         ]);

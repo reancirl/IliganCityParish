@@ -34,10 +34,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('admin', function($user){
             return $user->hasRole('Admin');
         });
-        // Gate::define('church-assigned', function($user){
-        //     if{
-
+        // Gate::define('assign', function($user, $baptismal){
+        //     if($user->church == $baptismal->place_of_baptism){
+        //         return true;
         //     }
+        //     return false;
         // });
     }
 }

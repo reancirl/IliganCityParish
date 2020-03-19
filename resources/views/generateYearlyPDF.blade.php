@@ -16,15 +16,15 @@
         <tbody>
             <tr>
                 <th scope="row">Total Baptismal Records</th>
-                <td>{{ $baptismal }}</td>
+                <td>{{ count($baptismal) }}</td>
             </tr>
             <tr>
                 <th scope="row">Total Confirmation Records</th>
-                <td>{{ $confirmation }}</td>
+                <td>{{ count($confirmation) }}</td>
             </tr>
             <tr>
                 <th scope="row">Total Marriage Records</th>
-                <td>{{ $marriage }}</td>
+                <td>{{ count($marriage) }}</td>
             </tr>
             <tr>
                 <th scope="row">Total First Communion Records</th>

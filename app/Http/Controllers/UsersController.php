@@ -15,7 +15,6 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-
         return view('pages.users_index',compact('users'));
     }
 
@@ -27,15 +26,32 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
+         $this->validate($request , [
+        'name' => 'required',
+        'email' => 'required|email',
+        ]);
+        $checkEmail = User::where('email', $request->input('email'))->count();
+        if($checkEmail != 0)
+        {
+            return redirect('users/create')->with('error','Email Already Taken');
+        }
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if($request->church == null){
+            $request->church = 'St.Michael The Archangel Parish';
+        }
+        $user->church = $request->church;
+        $user->password = Hash::make('password');
 
         $newUserId = User::latest()->first();
         $newUserId = $newUserId->id;
         $newUser = $newUserId+1;
         $userId = $request->roles;
+
+        if($userId == null){
+            return redirect('users/create')->with('error','Choose a Role');
+        }
         DB::table('role_user')->insert([
             'user_id' => $newUser,
             'role_id' => $userId
@@ -50,8 +66,9 @@ class UsersController extends Controller
     {
         $users = User::findOrFail($id);
         $roles = Role::all();
+        $roleId = implode($users->roles->pluck('id')->toArray());
 
-        return view('pages.users_edit',compact('users','roles'));
+        return view('pages.users_edit',compact('users','roles','roleId'));
     }
 
     public function update(Request $request, $id)
@@ -60,6 +77,7 @@ class UsersController extends Controller
         $user->roles()->sync($request->roles);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->church = $request->church;
         $user->save();
 
         return redirect('/users')->with('message', 'User added');

@@ -16,6 +16,23 @@
     	</button>
   	</a>
 <hr style="border: 1px solid #0078ff;">
+@if (session()->has('error'))
+<div class="col-sm-12">
+    <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+    	<strong>Sorry!</strong> {{ session()->get('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+</div>
+	@endif
+@if(count($errors)>0)
+  <ul>
+    @foreach($errors->all() as $error)
+      <li class="alert alert-danger">{{$error}}</li>
+    @endforeach
+  </ul>
+@endif
 
 <form method="post" action="{{ url('/users/store') }}">
 {{@csrf_field()}}
@@ -24,48 +41,67 @@
 		<div class="form-group">
 	        <label for="name">Username</label>
 	        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-	        @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
         </div>
+
         <div class="form-group">
 	        <label for="email">Email</label>
 	        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
         </div>
 	</div>
 	<div class="col-sm-5 ml-5">
 		<h5>Roles</h5>
-		<div>
-		@foreach($roles as $role)
-			<input type="radio" name="roles" value="{{ $role->id }}">
-			<label class="mr-3"> {{ $role->name }}</label>
-		@endforeach
-		</div>
-
 		<div class="form-group">
-	        <label for="password" class="mt-3-5">Password</label>
-	        <input id="password" type="text" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+			<input type="checkbox" name="roles" value="1" onclick="onlyOne(this)">
+			<label class="mr-3 mt-1"> SuperAdmin</label>
 
-	        @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+			<input type="checkbox" name="roles" value="2" onclick="onlyOne(this)">
+			<label class="mr-3 mt-1"> CathedralAdmin</label>
 
-        </div>
+			<input type="checkbox" name="roles" value="3" onclick="onlyOne(this)" id="test">
+			<label class="mr-3 mt-1"> Admin</label>
+		</div>
+		<div class="form-group" id="test1" style="display: none">
+			<label for="church" class="mt-1">Church</label>
+	        <select class="form-control" id="church" name="church" value="{{ old('church') }}">
+	        <option selected disabled>Choose Church: </option>
+	        <option value="San Lorenzo Ruiz Parish">San Lorenzo Ruiz Parish</option>
+	        <option value="San Roque Parish">San Roque Parish</option>
+	        <option value="Lord of the Holy Cross Parish">Lord of the Holy Cross Parish</option>
+	        <option value="Corpus Christi Parish">Corpus Christi Parish</option>
+	        <option value="Resurrection Of the Lord Parish">Resurrection Of the Lord Parish</option>
+	        <option value="Redemptorist Parish">Redemptorist Parish</option>
+	        <option value="St. Vincent Ferrer Parish">St. Vincent Ferrer Parish</option>
+	        <option value="Resurrection of The Lord Chinese-Filipino Parish">Resurrection of The Lord Chinese-Filipino Parish</option>
+	        <option value="San Isidro Labrador Parish">San Isidro Labrador Parish</option>
+	        <option value="Sto. Rosario Parish">Sto. Rosario Parish</option>
+	        <!-- <option value=""></option> -->
+	        </select>
+		</div>
 	</div>
 </div>
 <button type="submit" class="btn btn-primary btn-lg btn-block">Add User</button>
 </form>
+@endsection
+
+@section('javaScript')
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#test").click(function () {
+            if ($(this).is(":checked")) {
+                $("#test1").show();
+            } else {
+                $("#test1").hide();
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+	function onlyOne(checkbox) {
+	    var checkboxes = document.getElementsByName('roles')
+	    checkboxes.forEach((item) => {
+	        if (item !== checkbox) item.checked = false
+	    })
+	}
+</script>
 @endsection

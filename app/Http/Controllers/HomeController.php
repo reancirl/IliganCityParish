@@ -104,7 +104,7 @@ class HomeController extends Controller
                         return Carbon::parse($date->created_at)->format('Y');
                     })->first();
         if($confirmation == null){
-            $confirmation = 0;
+            $confirmation = [];
         }
         else $confirmation;
         $baptismal = Baptismal::with('confirmation')
@@ -116,13 +116,7 @@ class HomeController extends Controller
             $baptismal = [];
         }
         else $baptismal;
-        // return $baptismal->count();
 
-        // $month = $baptismal->sortBy('created_at')
-        //             ->groupBy(function($date) {
-        //                 return Carbon::parse($date->created_at)->format('M');
-        //             });
-        // return $month;
         return view('pages.yearlyPDF', compact('marriage','confirmation', 'baptismal'));
     }
 
@@ -131,17 +125,26 @@ class HomeController extends Controller
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($marriage == null){
+            $marriage = [];
+        }else $marriage;
         $confirmation = Confirmation::with('baptismal')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($confirmation == null){
+            $confirmation =[];
+        }else $confirmation;
         $baptismal = Baptismal::with('confirmation')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('Y');
-                    })->take(1)->count();
+                    })->first();
+        if($baptismal == null){
+            $baptismal = [];
+        }else $baptismal;
 
         $pdf = PDF::loadView('generateYearlyPDF', compact('marriage','confirmation', 'baptismal'));
         return $pdf->download('yearly_report.pdf');

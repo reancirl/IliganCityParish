@@ -20,6 +20,16 @@
         </div>
     </div>
 	@endif
+	@if (session()->has('error'))
+    <div class="col-sm-12">
+        <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+        	<strong>Sorry!</strong> {{ session()->get('error') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+    </div>
+	@endif
 
 	<div class="col-sm-12 grid-margin stretch-card">
 		<div class="card">
@@ -31,7 +41,7 @@
 		      		<th>Last Name</th>
 		      		<th>First Name</th>
 		      		<th>Middle Name</th>
-		      		<th>Date of Birth</th>
+		      		<th>Place of Baptismal</th>
 		      		<th>Gender</th>
 		      		<th></th>
 		      	</tr>
@@ -43,7 +53,7 @@
 		      		<td>{{$baptismal->last_name}}</td>
                     <td>{{$baptismal->first_name}}</td>
                     <td>{{$baptismal->middle_name}}</td>
-                    <td>{{Carbon\Carbon::parse($baptismal->date_of_birth)->formatLocalized('%b %d, %Y')}}</td>
+                    <td>{{$baptismal->place_of_baptism}}</td>
                     <td>{{$baptismal->gender}}</td>
 		      		<td>
 		      			<a href="/baptismal/{{$baptismal->id}}">

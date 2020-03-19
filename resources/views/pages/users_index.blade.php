@@ -41,7 +41,7 @@
 	      		<td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ implode(', ',$user->roles()->get()->pluck('name')->toArray())}}</td>
-                <td>St.Michael The Archangel</td>
+                <td>{{ $user->church }}</td>
 	      		<td>
 	      			<a href="{{ url('users/edit/'. $user->id)}}">
 	      				<button class="btn btn-outline-primary" >Edit Record</button>

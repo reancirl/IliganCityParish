@@ -17,17 +17,26 @@ class UsersTableSeeder extends Seeder
         // $authorRole = Role::where('name', 'author')->first();
         // $userRole = Role::where('name', 'user')->first();
 
-        $admin = User::create([
+        $super_admin = User::create([
         	'name' => 'SuperAdmin',
-        	'email' => 'admin@admin.com',
-        	'password' => Hash::make('secret')
+        	'email' => 'super@admin.com',
+        	'password' => Hash::make('password'),
+            'church' => 'Super Admin'
         ]);
 
-        $user = User::create([
-        	'name' => 'Reancirl',
-        	'email' => 'reancirl@gmail.com',
-        	'password' => Hash::make('secret')
-        ]);
+        // $cathedral_admin = User::create([
+        // 	'name' => 'Cathedral Admin',
+        // 	'email' => 'cathedral@admin.com',
+        // 	'password' => Hash::make('password'),
+        //     'church' => 'St.Michael The Archangel Parish'
+        // ]);
+
+        // $admin = User::create([
+        //     'name' => 'San Lorenzo Ruiz Admin',
+        //     'email' => 'san_lorenzo_ruiz@admin.com',
+        //     'password' => Hash::make('password'),
+        //     'church' => 'San Lorenzo Ruiz Parish'
+        // ]);
 
         // $author = User::create([
         // 	'name' => 'author',

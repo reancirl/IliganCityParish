@@ -81,12 +81,36 @@
       </div>
 
       <div class="row">
+      @canany(['super-admin','cathedral-admin'])
         <div class="col">
           <div class="form-group">
             <label for="place_of_baptism">Place of Baptismal</label>
-            <input type="text" class="form-control" id="place_of_baptism" name="place_of_baptism" placeholder="Place of Baptismal" required autocomplete="off" value="{{ $baptismal->place_of_baptism }}">
+            <select class="form-control" id="place_of_baptism" name="place_of_baptism" value="{{ old('place_of_baptism') }}">
+              <option value="St.Michael The Archangel Parish">St.Michael The Archangel Parish</option>
+              <option value="San Lorenzo Ruiz Parish">San Lorenzo Ruiz Parish</option>
+              <option value="San Roque Parish">San Roque Parish</option>
+              <option value="Lord of the Holy Cross Parish">Lord of the Holy Cross Parish</option>
+              <option value="Corpus Christi Parish">Corpus Christi Parish</option>
+              <option value="Resurrection Of the Lord Parish">Resurrection Of the Lord Parish</option>
+              <option value="Redemptorist Parish">Redemptorist Parish</option>
+              <option value="St. Vincent Ferrer Parish">St. Vincent Ferrer Parish</option>
+              <option value="Resurrection of The Lord Chinese-Filipino Parish">Resurrection of The Lord Chinese-Filipino Parish</option>
+              <option value="San Isidro Labrador Parish">San Isidro Labrador Parish</option>
+              <option value="Sto. Rosario Parish">Sto. Rosario Parish</option>
+              <!-- <option value=""></option> -->
+            </select>
           </div>
-        </div>
+        </div> 
+      @endcanany
+
+      @can('admin')
+        <div class="col">
+          <div class="form-group">
+            <label for="place_of_baptism">Place of Baptismal</label>
+            <input type="text" class="form-control" id="place_of_baptism" name="place_of_baptism" value="{{ Auth::user()->church }}" readonly>
+          </div>
+        </div> 
+      @endcan
 
         <div class="col">
           <div class="form-group">

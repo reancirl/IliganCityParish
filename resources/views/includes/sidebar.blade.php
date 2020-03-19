@@ -12,8 +12,14 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ route('home') }}">
         <i class="menu-icon typcn typcn-home-outline"></i>
-        <span class="menu-title">Dashboard</span>
+        <span class="menu-title">Home</span>
       </a>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('reports.index') }}">
+        <i class="menu-icon typcn typcn-th-large-outline"></i>
+        <span class="menu-title">Reports</span>
+      </a>
+    </li>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('baptismal.index') }}">
@@ -33,12 +39,14 @@
         <span class="menu-title">Marriage</span>
       </a>
     </li>
-<!--     <li class="nav-item">
-      <a class="nav-link" href="{{ route('reports.index') }}">
-        <i class="menu-icon typcn typcn-th-large-outline"></i>
-        <span class="menu-title">Reports</span>
-      </a>
-    </li> -->
+    @can('super-admin')
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('users.index')}}">  
+          <i class="menu-icon typcn typcn-group-outline"></i>
+          <span class="menu-title">User Management</span>
+        </a>
+      </li>
+    @endcan
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
         <i class="menu-icon typcn typcn-user-outline"></i>
@@ -47,11 +55,6 @@
       </a>
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
-          @can('super-admin')
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.index')}}"> User Management </a>
-          </li>
-          @endcan
           <li class="nav-item">
             <a class="nav-link" href="pages/samples/blank-page.html"> Change Password </a>
           </li>

@@ -37,15 +37,102 @@
 	</div>
 	<div class="col-sm-5 ml-5">
 		<h5>Roles</h5>
-		@foreach($roles as $role)
-			<div>
-				<input type="radio" name="roles[]" value="{{ $role->id }}"
-				@if($users->roles->pluck('id')->contains($role->id)) checked @endif>
-				<label> {{ $role->name }}</label>
+		<div class="form-group">
+			<input type="checkbox" name="roles" value="1" onclick="onlyOne(this)"
+			@if($roleId == 1) checked @endif>
+			<label class="mr-3 mt-1"> SuperAdmin</label>
+
+			<input type="checkbox" name="roles" value="2" onclick="onlyOne(this)"
+			@if($roleId == 2) checked @endif>
+			<label class="mr-3 mt-1"> CathedralAdmin</label>
+
+			<input type="checkbox" name="roles" value="3" onclick="onlyOne(this)" id="test"
+			@if($roleId == 3) checked @endif>
+			<label class="mr-3 mt-1"> Admin</label>
+		</div>
+		
+		@if($roleId == 3)
+			<div class="form-group" id="test1" style="display: block">
+				<label for="church" class="mt-1">Church</label>
+		        <select class="form-control" id="church" name="church">
+		        <option disabled selected>Choose Church:</option>
+		        <option value="San Lorenzo Ruiz Parish" @if($users->church == 'San Lorenzo Ruiz Parish') selected @endif>
+		        	San Lorenzo Ruiz Parish</option>
+		        <option value="San Roque Parish" @if($users->church == 'San Roque Parish') selected @endif>
+		        	San Roque Parish</option>
+		        <option value="Lord of the Holy Cross Parish" @if($users->church == 'Lord of the Holy Cross Parish') selected @endif>
+		        	Lord of the Holy Cross Parish</option>
+		        <option value="Corpus Christi Parish" @if($users->church == 'Corpus Christi Parish') selected @endif>
+		        	Corpus Christi Parish</option>
+		        <option value="Resurrection Of the Lord Parish" @if($users->church == 'Resurrection Of the Lord Parish') selected @endif>
+		        	Resurrection Of the Lord Parish</option>
+		        <option value="Redemptorist Parish" @if($users->church == 'Redemptorist Parish') selected @endif>
+		        	Redemptorist Parish</option>
+		        <option value="St. Vincent Ferrer Parish" @if($users->church == 'St. Vincent Ferrer Parish') selected @endif>
+		        	St. Vincent Ferrer Parish</option>
+		        <option value="Resurrection of The Lord Chinese-Filipino Parish" @if($users->church == 'Resurrection of The Lord Chinese-Filipino Parish') selected @endif>
+		        	Resurrection of The Lord Chinese-Filipino Parish</option>
+		        <option value="San Isidro Labrador Parish" @if($users->church == 'San Isidro Labrador Parish') selected @endif>
+		        	San Isidro Labrador Parish</option>
+		        <option value="Sto. Rosario Parish" @if($users->church == 'Sto. Rosario Parish') selected @endif>
+		        	Sto. Rosario Parish</option>
+		        <!-- <option value=""></option> -->
+		        </select>
 			</div>
-		@endforeach
+		@endif
+		<div class="form-group" id="test1" style="display: none">
+				<label for="church" class="mt-1">Church</label>
+		        <select class="form-control" id="church" name="church">
+		        <option disabled selected>Choose Church:</option>
+		        <option value="San Lorenzo Ruiz Parish" @if($users->church == 'San Lorenzo Ruiz Parish') selected @endif>
+		        	San Lorenzo Ruiz Parish</option>
+		        <option value="San Roque Parish" @if($users->church == 'San Roque Parish') selected @endif>
+		        	San Roque Parish</option>
+		        <option value="Lord of the Holy Cross Parish" @if($users->church == 'Lord of the Holy Cross Parish') selected @endif>
+		        	Lord of the Holy Cross Parish</option>
+		        <option value="Corpus Christi Parish" @if($users->church == 'Corpus Christi Parish') selected @endif>
+		        	Corpus Christi Parish</option>
+		        <option value="Resurrection Of the Lord Parish" @if($users->church == 'Resurrection Of the Lord Parish') selected @endif>
+		        	Resurrection Of the Lord Parish</option>
+		        <option value="Redemptorist Parish" @if($users->church == 'Redemptorist Parish') selected @endif>
+		        	Redemptorist Parish</option>
+		        <option value="St. Vincent Ferrer Parish" @if($users->church == 'St. Vincent Ferrer Parish') selected @endif>
+		        	St. Vincent Ferrer Parish</option>
+		        <option value="Resurrection of The Lord Chinese-Filipino Parish" @if($users->church == 'Resurrection of The Lord Chinese-Filipino Parish') selected @endif>
+		        	Resurrection of The Lord Chinese-Filipino Parish</option>
+		        <option value="San Isidro Labrador Parish" @if($users->church == 'San Isidro Labrador Parish') selected @endif>
+		        	San Isidro Labrador Parish</option>
+		        <option value="Sto. Rosario Parish" @if($users->church == 'Sto. Rosario Parish') selected @endif>
+		        	Sto. Rosario Parish</option>
+		        <!-- <option value=""></option> -->
+		        </select>
+			</div>
+
 	</div>
 </div>
 <button type="submit" class="btn btn-primary btn-lg btn-block">Update Record</button>
 </form>
+@endsection
+
+@section('javaScript')
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#test").click(function () {
+            if ($(this).is(":checked")) {
+                $("#test1").show();
+            } else {
+                $("#test1").hide();
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+	function onlyOne(checkbox) {
+	    var checkboxes = document.getElementsByName('roles')
+	    checkboxes.forEach((item) => {
+	        if (item !== checkbox) item.checked = false
+	    })
+	}
+</script>
 @endsection

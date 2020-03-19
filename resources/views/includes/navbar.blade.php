@@ -5,7 +5,7 @@
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
     <ul class="navbar-nav">
-      <li class="nav-item font-weight-semibold d-none d-lg-block">St. Michael the Archangel Parish Church</li>
+      <li class="nav-item font-weight-semibold d-none d-lg-block">{{ Auth::user()->church }}</li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">

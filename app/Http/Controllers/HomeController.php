@@ -72,12 +72,11 @@ class HomeController extends Controller
     }
 
     public function generatePDF(){
-         $marriage = Marriage::with('husband')
+        $marriage = Marriage::with('husband')
                     ->orderBy('created_at', 'desc')->get()
                     ->groupBy(function($date) {
                         return Carbon::parse($date->created_at)->format('W');
                     });
-        // return count($marriage);
         $marriage = $marriage->take(1);
         $count = $marriage->first();
         if($count == null){
@@ -149,9 +148,4 @@ class HomeController extends Controller
         $pdf = PDF::loadView('generateYearlyPDF', compact('marriage','confirmation', 'baptismal'));
         return $pdf->download('yearly_report.pdf');
     }
-
-    // public function reportsindex()
-    // {
-    //     return view('pages.reports');
-    // }
 }

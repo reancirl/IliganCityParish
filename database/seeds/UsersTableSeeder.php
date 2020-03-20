@@ -18,10 +18,10 @@ class UsersTableSeeder extends Seeder
         // $userRole = Role::where('name', 'user')->first();
 
         $super_admin = User::create([
-        	'name' => 'SuperAdmin',
+        	'name' => 'Super Admin',
         	'email' => 'super@admin.com',
         	'password' => Hash::make('password'),
-            'church' => 'Super Admin'
+            'church' => 'Diocese of Iligan'
         ]);
 
         // $cathedral_admin = User::create([

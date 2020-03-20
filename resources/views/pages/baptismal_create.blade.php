@@ -87,17 +87,17 @@
           <div class="form-group">
             <label for="place_of_baptism">Place of Baptismal</label>
             <select class="form-control" id="place_of_baptism" name="place_of_baptism" value="{{ old('place_of_baptism') }}">
-              <option value="St.Michael The Archangel Parish">St.Michael The Archangel Parish</option>
-              <option value="San Lorenzo Ruiz Parish">San Lorenzo Ruiz Parish</option>
-              <option value="San Roque Parish">San Roque Parish</option>
-              <option value="Lord of the Holy Cross Parish">Lord of the Holy Cross Parish</option>
-              <option value="Corpus Christi Parish">Corpus Christi Parish</option>
-              <option value="Resurrection Of the Lord Parish">Resurrection Of the Lord Parish</option>
-              <option value="Redemptorist Parish">Redemptorist Parish</option>
-              <option value="St. Vincent Ferrer Parish">St. Vincent Ferrer Parish</option>
-              <option value="Resurrection of The Lord Chinese-Filipino Parish">Resurrection of The Lord Chinese-Filipino Parish</option>
-              <option value="San Isidro Labrador Parish">San Isidro Labrador Parish</option>
-              <option value="Sto. Rosario Parish">Sto. Rosario Parish</option>
+              <option value="St.Michael The Archangel Parish Church">St.Michael The Archangel Parish Church</option>
+              <option value="San Lorenzo Ruiz Parish Church">San Lorenzo Ruiz Parish Church</option>
+              <option value="San Roque Parish Church">San Roque Parish Church</option>
+              <option value="Lord of the Holy Cross Parish Church">Lord of the Holy Cross Parish Church</option>
+              <option value="Corpus Christi Parish Church">Corpus Christi Parish Church</option>
+              <option value="Resurrection Of the Lord Parish Church">Resurrection Of the Lord Parish Church</option>
+              <option value="Redemptorist Parish Church">Redemptorist Parish Church</option>
+              <option value="St. Vincent Ferrer Parish Church">St. Vincent Ferrer Parish Church</option>
+              <option value="Resurrection of The Lord Chinese-Filipino Parish Church">Resurrection of The Lord Chinese-Filipino Parish Church</option>
+              <option value="San Isidro Labrador Parish Church">San Isidro Labrador Parish Church</option>
+              <option value="Sto. Rosario Parish Church">Sto. Rosario Parish Church</option>
               <!-- <option value=""></option> -->
             </select>
           </div>
@@ -108,7 +108,7 @@
         <div class="col">
           <div class="form-group">
             <label for="place_of_baptism">Place of Baptismal</label>
-            <input type="text" class="form-control" id="place_of_baptism" name="place_of_baptism" value="St.Michael The Archangel Parish" readonly>
+            <input type="text" class="form-control" id="place_of_baptism" name="place_of_baptism" value="St.Michael The Archangel Parish Church" readonly>
           </div>
         </div> 
       @endcan
@@ -260,9 +260,4 @@
       <button type="submit" class="btn btn-primary btn-lg btn-block">Add Record</button>
 
     </form>
-@endsection
-@section('javaScript')
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>    
 @endsection

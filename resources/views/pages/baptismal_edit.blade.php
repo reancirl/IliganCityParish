@@ -208,7 +208,7 @@
                 </select>
                </td>
 
-               <td></td>
+               <td><a href="#a" class="btn btn-danger remove"><i class="typcn typcn-delete-outline"></i></a></td>
              </tr>
              @endforeach
             </tbody>

@@ -56,26 +56,26 @@
 				<label for="church" class="mt-1">Church</label>
 		        <select class="form-control" id="church" name="church">
 		        <option disabled selected>Choose Church:</option>
-		        <option value="San Lorenzo Ruiz Parish" @if($users->church == 'San Lorenzo Ruiz Parish') selected @endif>
-		        	San Lorenzo Ruiz Parish</option>
-		        <option value="San Roque Parish" @if($users->church == 'San Roque Parish') selected @endif>
-		        	San Roque Parish</option>
-		        <option value="Lord of the Holy Cross Parish" @if($users->church == 'Lord of the Holy Cross Parish') selected @endif>
-		        	Lord of the Holy Cross Parish</option>
-		        <option value="Corpus Christi Parish" @if($users->church == 'Corpus Christi Parish') selected @endif>
-		        	Corpus Christi Parish</option>
-		        <option value="Resurrection Of the Lord Parish" @if($users->church == 'Resurrection Of the Lord Parish') selected @endif>
-		        	Resurrection Of the Lord Parish</option>
-		        <option value="Redemptorist Parish" @if($users->church == 'Redemptorist Parish') selected @endif>
-		        	Redemptorist Parish</option>
-		        <option value="St. Vincent Ferrer Parish" @if($users->church == 'St. Vincent Ferrer Parish') selected @endif>
-		        	St. Vincent Ferrer Parish</option>
-		        <option value="Resurrection of The Lord Chinese-Filipino Parish" @if($users->church == 'Resurrection of The Lord Chinese-Filipino Parish') selected @endif>
-		        	Resurrection of The Lord Chinese-Filipino Parish</option>
-		        <option value="San Isidro Labrador Parish" @if($users->church == 'San Isidro Labrador Parish') selected @endif>
-		        	San Isidro Labrador Parish</option>
-		        <option value="Sto. Rosario Parish" @if($users->church == 'Sto. Rosario Parish') selected @endif>
-		        	Sto. Rosario Parish</option>
+		        <option value="San Lorenzo Ruiz Parish Church" @if($users->church == 'San Lorenzo Ruiz Parish Church') selected @endif>
+		        	San Lorenzo Ruiz Parish Church</option>
+		        <option value="San Roque Parish Church" @if($users->church == 'San Roque Parish Church') selected @endif>
+		        	San Roque Parish Church</option>
+		        <option value="Lord of the Holy Cross Parish Church" @if($users->church == 'Lord of the Holy Cross Parish Church') selected @endif>
+		        	Lord of the Holy Cross Parish Church</option>
+		        <option value="Corpus Christi Parish Church" @if($users->church == 'Corpus Christi Parish Church') selected @endif>
+		        	Corpus Christi Parish Church</option>
+		        <option value="Resurrection Of the Lord Parish Church" @if($users->church == 'Resurrection Of the Lord Parish Church') selected @endif>
+		        	Resurrection Of the Lord Parish Church</option>
+		        <option value="Redemptorist Parish Church" @if($users->church == 'Redemptorist Parish Church') selected @endif>
+		        	Redemptorist Parish Church</option>
+		        <option value="St. Vincent Ferrer Parish Church" @if($users->church == 'St. Vincent Ferrer Parish Church') selected @endif>
+		        	St. Vincent Ferrer Parish Church</option>
+		        <option value="Resurrection of The Lord Chinese-Filipino Parish Church" @if($users->church == 'Resurrection of The Lord Chinese-Filipino Parish Church') selected @endif>
+		        	Resurrection of The Lord Chinese-Filipino Parish Church</option>
+		        <option value="San Isidro Labrador Parish Church" @if($users->church == 'San Isidro Labrador Parish Church') selected @endif>
+		        	San Isidro Labrador Parish Church</option>
+		        <option value="Sto. Rosario Parish Church" @if($users->church == 'Sto. Rosario Parish Church') selected @endif>
+		        	Sto. Rosario Parish Church</option>
 		        <!-- <option value=""></option> -->
 		        </select>
 			</div>
@@ -84,26 +84,26 @@
 				<label for="church" class="mt-1">Church</label>
 		        <select class="form-control" id="church" name="church">
 		        <option disabled selected>Choose Church:</option>
-		        <option value="San Lorenzo Ruiz Parish" @if($users->church == 'San Lorenzo Ruiz Parish') selected @endif>
-		        	San Lorenzo Ruiz Parish</option>
-		        <option value="San Roque Parish" @if($users->church == 'San Roque Parish') selected @endif>
-		        	San Roque Parish</option>
-		        <option value="Lord of the Holy Cross Parish" @if($users->church == 'Lord of the Holy Cross Parish') selected @endif>
-		        	Lord of the Holy Cross Parish</option>
-		        <option value="Corpus Christi Parish" @if($users->church == 'Corpus Christi Parish') selected @endif>
-		        	Corpus Christi Parish</option>
-		        <option value="Resurrection Of the Lord Parish" @if($users->church == 'Resurrection Of the Lord Parish') selected @endif>
-		        	Resurrection Of the Lord Parish</option>
-		        <option value="Redemptorist Parish" @if($users->church == 'Redemptorist Parish') selected @endif>
-		        	Redemptorist Parish</option>
-		        <option value="St. Vincent Ferrer Parish" @if($users->church == 'St. Vincent Ferrer Parish') selected @endif>
-		        	St. Vincent Ferrer Parish</option>
-		        <option value="Resurrection of The Lord Chinese-Filipino Parish" @if($users->church == 'Resurrection of The Lord Chinese-Filipino Parish') selected @endif>
-		        	Resurrection of The Lord Chinese-Filipino Parish</option>
-		        <option value="San Isidro Labrador Parish" @if($users->church == 'San Isidro Labrador Parish') selected @endif>
-		        	San Isidro Labrador Parish</option>
-		        <option value="Sto. Rosario Parish" @if($users->church == 'Sto. Rosario Parish') selected @endif>
-		        	Sto. Rosario Parish</option>
+		        <option value="San Lorenzo Ruiz Parish Church" @if($users->church == 'San Lorenzo Ruiz Parish Church') selected @endif>
+		        	San Lorenzo Ruiz Parish Church</option>
+		        <option value="San Roque Parish Church" @if($users->church == 'San Roque Parish Church') selected @endif>
+		        	San Roque Parish Church</option>
+		        <option value="Lord of the Holy Cross Parish Church" @if($users->church == 'Lord of the Holy Cross Parish Church') selected @endif>
+		        	Lord of the Holy Cross Parish Church</option>
+		        <option value="Corpus Christi Parish Church" @if($users->church == 'Corpus Christi Parish Church') selected @endif>
+		        	Corpus Christi Parish Church</option>
+		        <option value="Resurrection Of the Lord Parish Church" @if($users->church == 'Resurrection Of the Lord Parish Church') selected @endif>
+		        	Resurrection Of the Lord Parish Church</option>
+		        <option value="Redemptorist Parish Church" @if($users->church == 'Redemptorist Parish Church') selected @endif>
+		        	Redemptorist Parish Church</option>
+		        <option value="St. Vincent Ferrer Parish Church" @if($users->church == 'St. Vincent Ferrer Parish Church') selected @endif>
+		        	St. Vincent Ferrer Parish Church</option>
+		        <option value="Resurrection of The Lord Chinese-Filipino Parish Church" @if($users->church == 'Resurrection of The Lord Chinese-Filipino Parish Church') selected @endif>
+		        	Resurrection of The Lord Chinese-Filipino Parish Church</option>
+		        <option value="San Isidro Labrador Parish Church" @if($users->church == 'San Isidro Labrador Parish Church') selected @endif>
+		        	San Isidro Labrador Parish Church</option>
+		        <option value="Sto. Rosario Parish Church" @if($users->church == 'Sto. Rosario Parish Church') selected @endif>
+		        	Sto. Rosario Parish Church</option>
 		        <!-- <option value=""></option> -->
 		        </select>
 			</div>

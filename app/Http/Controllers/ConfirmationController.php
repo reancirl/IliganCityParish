@@ -43,6 +43,7 @@ class ConfirmationController extends Controller
         $confirmation->baptismal_id = $baptismal->id;
         $confirmation->date_of_seminar = $request->date_of_seminar;
         $confirmation->date_of_confirmation = $request->date_of_confirmation;
+        $confirmation->church = $request->church;
         $confirmation->save();
 
         $sponsor = new ConfirmationSponsor();

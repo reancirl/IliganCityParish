@@ -46,7 +46,11 @@ Route::prefix('users')->middleware('can:super-admin')->group(function(){
 });
 
 Route::group(['prefix' => 'reports'], function() {
-	Route::get('/','HomeController@reportsindex')->name('reports.index');
+	Route::get('/','ReportsController@index')->name('reports.index');
+	Route::get('/weekly-report','ReportsController@weekly')->name('reports.weekly');
+	Route::get('/yearly-report','ReportsController@yearly')->name('reports.yearly');
+	Route::get('/generate-weekly-report','ReportsController@generateWeekly')->name('reports.generateWeekly');
+	Route::get('/generate-yearly-report','ReportsController@generateYearly')->name('reports.generateYearly');	
 });
 
 Route::get('/', function () {

@@ -22,12 +22,12 @@
 <body>
 
 <section class="container pt-5">
-	<a href="{{route('home')}}">
+	<a href="{{route('reports.index')}}">
 		<button type="button" class="btn btn-outline-primary btn-lg">
 		  <i class="typcn typcn-arrow-left"></i>Go Back
 		</button>
 	</a>
-	<a href="{{route('generateYearlyPDF')}}">
+	<a href="{{route('reports.generateYearly')}}">
 		<button type="button" class="btn btn-success btn-lg float-right">
 		  <i class="typcn typcn-document"></i>Download report
 		</button>

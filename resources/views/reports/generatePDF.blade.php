@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/demo_1/style1.css')}}">
 </head>
 <body>
+<h5 class="mb-2">Total number of marriage this week is ({{ count($count) }})</h5>
 <div class="grid-margin stretch-card">
     <div class="card">
       <div class="card-body">

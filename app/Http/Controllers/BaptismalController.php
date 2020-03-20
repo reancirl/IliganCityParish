@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Baptismal;
 use App\BaptismalSponsor;
+use DB;
 use Illuminate\Http\Request;
 
 class BaptismalController extends Controller
@@ -29,7 +30,6 @@ class BaptismalController extends Controller
         'date_of_birth' => 'required|min:8',
         'gender' => 'required',
         'place_of_birth' => 'required|regex:/^[\pL\s\-]+$/u|min:6',
-        'place_of_baptism' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
         'date_of_attending_seminar' => 'required|min:8',
         'date_of_baptism' => 'required|min:8',
         'fathers_name' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
@@ -80,8 +80,8 @@ class BaptismalController extends Controller
     {
         $baptismal = Baptismal::findorFail($id);
         if(auth()->user()->church == $baptismal->place_of_baptism 
-        || auth()->user()->church == 'St.Michael The Archangel Parish' 
-        || auth()->user()->church == 'Super Admin') 
+        || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
+        || auth()->user()->church == 'Diocese of Iligan') 
         {
             return view('pages.baptismal_show', compact('baptismal'));
         } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
@@ -90,9 +90,13 @@ class BaptismalController extends Controller
     public function edit($id)
     {
         $baptismal = Baptismal::findorFail($id);
+        // $count = $baptismal->baptismalSponsors;
+        // $temp = 1;
+        // $test = $count->find($temp);
+        // return $test->id;
         if(auth()->user()->church == $baptismal->place_of_baptism 
-        || auth()->user()->church == 'St.Michael The Archangel Parish' 
-        || auth()->user()->church == 'Super Admin') 
+        || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
+        || auth()->user()->church == 'Diocese of Iligan') 
         {
             return view('pages.baptismal_edit', compact('baptismal'));
         } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
@@ -107,7 +111,6 @@ class BaptismalController extends Controller
             'date_of_birth' => 'required|min:8',
             'gender' => 'required',
             'place_of_birth' => 'required|regex:/^[\pL\s\-]+$/u|min:6',
-            'place_of_baptism' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
             'date_of_attending_seminar' => 'required|min:8',
             'date_of_baptism' => 'required|min:8',
             'fathers_name' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
@@ -133,8 +136,8 @@ class BaptismalController extends Controller
         $baptismal->contact_number = $request->contact_number;
         $baptismal->parents_type_of_marriage = $request->parents_type_of_marriage;
         $baptismal->update();
-   
-        $sponsor = new BaptismalSponsor();
+        
+        // $sponsor = $baptismal->baptismalSponsors;
         // if(count($request->sponsor_name) > 0)
         // {
         //     foreach($request->sponsor_name as $item=>$v)
@@ -144,10 +147,23 @@ class BaptismalController extends Controller
         //             'sponsor_name'=>$request->sponsor_name[$item],
         //             'sponsor_gender'=>$request->sponsor_gender[$item]
         //             );
-        //         BaptismalSponsor::insert($data2);
+        //         $test = array_pluck($data2, 'sponsor_name');
+        //         return $test;
         //     }
         // }
-
+        if(count($request->sponsor_name) > 0)
+        {
+            DB::table('baptismal_sponsors')->where('baptismal_id', $baptismal->id)->delete();
+            foreach($request->sponsor_name as $item=>$v)
+            {
+                $data2=array(
+                    'baptismal_id'=>$baptismal->id,
+                    'sponsor_name'=>$request->sponsor_name[$item],
+                    'sponsor_gender'=>$request->sponsor_gender[$item]
+                    );
+                BaptismalSponsor::insert($data2);
+            }
+        }
         return redirect('/baptismal')->with('message', 'Baptismal record Updated');
     }
 

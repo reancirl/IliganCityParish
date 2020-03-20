@@ -38,10 +38,9 @@ class UsersController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        if($request->church == null){
-            $request->church = 'St.Michael The Archangel Parish';
-        }
-        $user->church = $request->church;
+        // if($request->church == null){
+        //     $request->church = 'St.Michael The Archangel Parish';
+        // }
         $user->password = Hash::make('password');
 
         $newUserId = User::latest()->first();
@@ -56,10 +55,18 @@ class UsersController extends Controller
             'user_id' => $newUser,
             'role_id' => $userId
         ]);
-        
+        if($userId == 1){
+            $user->church = 'Diocese of Iligan';
+        }
+        else if($userId == 2){
+            $user->church = 'St.Michael The Archangel Parish';
+        }
+        else{
+            $user->church = $request->church;
+        }
         $user->save();
 
-        return redirect('/users')->with('message', 'User has been updated');
+        return redirect('/users')->with('message', 'User has been added');
     }
 
     public function edit($id)
@@ -75,9 +82,19 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $user->roles()->sync($request->roles);
+        $temp = implode($user->roles->pluck('id')->toArray());
+        if($temp == 2)
+        {
+            $user->church = 'St.Michael The Archangel Parish';
+        }
+        else if($temp == 1) {
+            $user->church = 'Diocese of Iligan';
+        }
+        else{
+            $user->church = $request->church;
+        }
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->church = $request->church;
         $user->save();
 
         return redirect('/users')->with('message', 'User added');

@@ -22,7 +22,7 @@
 <body>
 
 <section class="container pt-5">
-    <a href="{{route('home')}}">
+    <a href="{{route('reports.index')}}">
         <button type="button" class="btn btn-outline-primary btn-lg">
           <i class="typcn typcn-arrow-left"></i>Go Back
         </button>
@@ -32,7 +32,7 @@
         <div class="grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <a href="{{route('generatePDF')}}">
+            <a href="{{route('reports.generateWeekly')}}">
                 <button type="button" class="btn btn-success btn-lg float-right">
                   <i class="typcn typcn-document"></i>Download report
                 </button>

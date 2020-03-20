@@ -17,6 +17,7 @@ class CreateMarriagesTable extends Migration
             $table->bigIncrements('id');
             $table->date('date');
             $table->date('date_of_seminar');
+            $table->string('church');
 
             $table->timestamps();
             $table->UnsignedBiginteger('wife_id');

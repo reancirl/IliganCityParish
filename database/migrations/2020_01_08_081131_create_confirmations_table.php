@@ -17,6 +17,7 @@ class CreateConfirmationsTable extends Migration
             $table->bigIncrements('id');
             $table->date('date_of_seminar');
             $table->date('date_of_confirmation');
+            $table->string('church');
             $table->timestamps();
            
             $table->UnsignedBiginteger('baptismal_id');

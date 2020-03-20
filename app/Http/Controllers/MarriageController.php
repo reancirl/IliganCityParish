@@ -111,6 +111,7 @@ class MarriageController extends Controller
         $marriage = new Marriage();
         $marriage->date = $request->date;
         $marriage->date_of_seminar = $request->date_of_seminar;
+        $marriage->church = $request->church;
         $husband = Husband::findorFail($husbandId);
         $marriage->husband_id = $husband->id;
         $wife = Wife::findorFail($wifeId);

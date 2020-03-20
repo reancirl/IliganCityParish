@@ -15,7 +15,12 @@ class CreateConfirmationFacilitatorsTable extends Migration
     {
         Schema::create('confirmation_facilitators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('facilitator_1');
+            $table->string('facilitator_2');
+            $table->string('facilitator_3')->nullable();
+            $table->UnsignedBiginteger('confirmation_id');
+            
+            $table->foreign('confirmation_id')->references('id')->on('confirmations');
         });
     }
 

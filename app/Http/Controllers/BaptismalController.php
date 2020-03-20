@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Baptismal;
 use App\BaptismalSponsor;
-use DB;
+use App\BaptismalFacilitator;
 use Illuminate\Http\Request;
 
 class BaptismalController extends Controller
@@ -39,6 +40,8 @@ class BaptismalController extends Controller
         'parents_type_of_marriage' => 'required',
         'sponsor_name'=>'required',
         'sponsor_gender'=>'required',
+        'facilitator_1' => 'required',
+        'facilitator_2' => 'required',
         ]);
 
         $baptismal = new Baptismal();
@@ -72,6 +75,12 @@ class BaptismalController extends Controller
                 BaptismalSponsor::insert($data2);
             }
         }
+        $facilitator = new BaptismalFacilitator;
+        $facilitator->baptismal_id = $baptismal->id;
+        $facilitator->facilitator_1 = $request->facilitator_1;
+        $facilitator->facilitator_2 = $request->facilitator_2;
+        $facilitator->facilitator_3 = $request->facilitator_3;
+        $facilitator->save();
 
         return redirect('/baptismal')->with('message', 'Baptismal record added');
     }
@@ -90,10 +99,6 @@ class BaptismalController extends Controller
     public function edit($id)
     {
         $baptismal = Baptismal::findorFail($id);
-        // $count = $baptismal->baptismalSponsors;
-        // $temp = 1;
-        // $test = $count->find($temp);
-        // return $test->id;
         if(auth()->user()->church == $baptismal->place_of_baptism 
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
@@ -118,6 +123,10 @@ class BaptismalController extends Controller
             'parents_address' => 'required',
             'contact_number' => 'required',
             'parents_type_of_marriage' => 'required',
+            'facilitator_1' => 'required',
+            'facilitator_2' => 'required',
+            'sponsor_name'=>'required',
+            'sponsor_gender'=>'required',
         ]);
 
         $baptismal = Baptismal::find($id);
@@ -137,20 +146,6 @@ class BaptismalController extends Controller
         $baptismal->parents_type_of_marriage = $request->parents_type_of_marriage;
         $baptismal->update();
         
-        // $sponsor = $baptismal->baptismalSponsors;
-        // if(count($request->sponsor_name) > 0)
-        // {
-        //     foreach($request->sponsor_name as $item=>$v)
-        //     {
-        //         $data2=array(
-        //             'baptismal_id'=>$baptismal->id,
-        //             'sponsor_name'=>$request->sponsor_name[$item],
-        //             'sponsor_gender'=>$request->sponsor_gender[$item]
-        //             );
-        //         $test = array_pluck($data2, 'sponsor_name');
-        //         return $test;
-        //     }
-        // }
         if(count($request->sponsor_name) > 0)
         {
             DB::table('baptismal_sponsors')->where('baptismal_id', $baptismal->id)->delete();
@@ -164,6 +159,12 @@ class BaptismalController extends Controller
                 BaptismalSponsor::insert($data2);
             }
         }
+        $facilitator = $baptismal->BaptismalFacilitator;
+        $facilitator->baptismal_id = $baptismal->id;
+        $facilitator->facilitator_1 = $request->facilitator_1;
+        $facilitator->facilitator_2 = $request->facilitator_2;
+        $facilitator->facilitator_3 = $request->facilitator_3;
+        $facilitator->save();
         return redirect('/baptismal')->with('message', 'Baptismal record Updated');
     }
 

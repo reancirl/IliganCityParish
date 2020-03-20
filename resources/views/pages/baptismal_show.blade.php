@@ -85,6 +85,21 @@
 	        	</tr>
 	        @endforeach
 
+	    	<tr>
+		      <th scope="row">Primary Facilitator</th>
+		      <td>{{$baptismal->baptismalFacilitator->facilitator_1}}</td>
+		    </tr>
+	    
+	    	<tr>
+		      <th scope="row">Facilitator 2</th>
+		      <td>{{$baptismal->baptismalFacilitator->facilitator_2}}</td>
+		    </tr>
+
+	    	<tr>
+		      <th scope="row">Facilitator 3</th>
+		      <td>{{$baptismal->baptismalFacilitator->facilitator_3}}</td>
+		    </tr>
+
 		    <tr>
 		      <th scope="row">Created on</th>
 		      <td>{{Carbon\Carbon::parse($baptismal->created_at)->formatLocalized('%b %d, %Y')}}</td>

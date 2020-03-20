@@ -15,7 +15,12 @@ class CreateBaptismalFacilitatorsTable extends Migration
     {
         Schema::create('baptismal_facilitators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('facilitator_1');
+            $table->string('facilitator_2');
+            $table->string('facilitator_3')->nullable();
+            $table->UnsignedBiginteger('baptismal_id');
+            
+            $table->foreign('baptismal_id')->references('id')->on('baptismals');
         });
     }
 

@@ -7,6 +7,7 @@
 <h3>{{$confirmation->baptismal->first_name}} {{$confirmation->baptismal->last_name}} confirmation record</h3>
 	<a href="/confirmation/{{$confirmation->id}}">
     	<button type="button" class="btn btn-outline-primary">
+        <i class="typcn typcn-arrow-left"></i>
      		Go Back
     	</button>
   	</a>
@@ -78,6 +79,50 @@
           </div>
         </div>
       </div>
+       @canany(['super-admin','cathedral-admin'])
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="church">Place of Confirmation</label>
+            <select class="form-control" id="church" name="church">
+              <option value="St.Michael The Archangel Parish Church" @if($confirmation->church == 'St.Michael The Archangel Parish Church') selected @endif>
+                St.Michael The Archangel Parish Church</option>
+              <option value="San Lorenzo Ruiz Parish Church" @if($confirmation->church == 'San Lorenzo Ruiz Parish Church') selected @endif>
+                San Lorenzo Ruiz Parish Church</option>
+              <option value="San Roque Parish Church" @if($confirmation->church == 'San Roque Parish Church') selected @endif>
+                San Roque Parish Church</option>
+              <option value="Lord of the Holy Cross Parish Church" @if($confirmation->church == 'Lord of the Holy Cross Parish Church') selected @endif>
+                Lord of the Holy Cross Parish Church</option>
+              <option value="Corpus Christi Parish Church" @if($confirmation->church == 'Corpus Christi Parish Church') selected @endif>
+                Corpus Christi Parish Church</option>
+              <option value="Resurrection Of the Lord Parish Church" @if($confirmation->church == 'Resurrection Of the Lord Parish Church') selected @endif>
+                Resurrection Of the Lord Parish Church</option>
+              <option value="Redemptorist Parish Church" @if($confirmation->church == 'Redemptorist Parish Church') selected @endif>
+                Redemptorist Parish Church</option>
+              <option value="St. Vincent Ferrer Parish Church" @if($confirmation->church == 'St. Vincent Ferrer Parish Church') selected @endif>
+                St. Vincent Ferrer Parish Church</option>
+              <option value="Resurrection of The Lord Chinese-Filipino Parish Church" @if($confirmation->church == 'Resurrection of The Lord Chinese-Filipino Parish Church') selected @endif>
+                Resurrection of The Lord Chinese-Filipino Parish Church</option>
+              <option value="San Isidro Labrador Parish Church" @if($confirmation->church == 'San Isidro Labrador Parish Church') selected @endif>
+                San Isidro Labrador Parish Church</option>
+              <option value="Sto. Rosario Parish Church" @if($confirmation->church == 'Sto. Rosario Parish Church') selected @endif>
+                Sto. Rosario Parish Church</option>
+              <!-- <option value=""></option> -->
+            </select>
+          </div>
+        </div>
+      </div>
+    @endcanany
+    @can('cathedral-admin')
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="church">Place of Confirmation</label>
+            <input type="text" class="form-control" id="church" name="church" value="St.Michael The Archangel Parish Church" readonly>
+          </div>
+        </div> 
+      </div>
+    @endcan
 
       <br>
     <h3>Sponsor Details</h3>
@@ -107,13 +152,42 @@
                 </select>
                </td>
 
-               <td></td>
+               <td><a href="#a" class="btn btn-danger remove"><i class="typcn typcn-delete-outline"></i></a></td>
              </tr>
              @endforeach
             </tbody>
          </table>
       </div>
 
+  <h3>Facilitators Details</h3>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="facilitator_1">Primary Facilitator</label>
+        <input type="text" class="form-control" id="facilitator_1" name="facilitator_1" required autocomplete="off" value="{{ $confirmation->confirmationFacilitator->facilitator_1 }}">
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <label for="facilitator_2">Facilitator 2</label>
+        <input type="text" class="form-control" id="facilitator_2" name="facilitator_2" required autocomplete="off" value="{{ $confirmation->confirmationFacilitator->facilitator_2 }}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="facilitator_3">Facilitator 3</label>
+        <input type="text" class="form-control" id="facilitator_3" name="facilitator_3" autocomplete="off" value="{{ $confirmation->confirmationFacilitator->facilitator_3 }}">
+      </div>
+    </div>
+  </div>
+
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Update Record</button>
+
+    </form>
 <script type="text/javascript">
     $('.addRow').on('click',function(){
         addRow();
@@ -142,14 +216,4 @@
     });
 </script>
 
-      <button type="submit" class="btn btn-primary btn-lg btn-block">Update Record</button>
-
-    </form>
-
-@endsection
-
-@section('javaScript')
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>    
 @endsection

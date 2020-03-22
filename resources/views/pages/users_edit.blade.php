@@ -51,7 +51,7 @@
 			<label class="mr-3 mt-1"> Admin</label>
 		</div>
 		
-		@if($roleId == 3)
+<!-- 		@if($roleId == 3)
 			<div class="form-group" id="test1" style="display: block">
 				<label for="church" class="mt-1">Church</label>
 		        <select class="form-control" id="church" name="church">
@@ -76,10 +76,10 @@
 		        	San Isidro Labrador Parish Church</option>
 		        <option value="Sto. Rosario Parish Church" @if($users->church == 'Sto. Rosario Parish Church') selected @endif>
 		        	Sto. Rosario Parish Church</option>
-		        <!-- <option value=""></option> -->
+		        
 		        </select>
 			</div>
-		@endif
+		@endif -->
 		<div class="form-group" id="test1" style="display: none">
 				<label for="church" class="mt-1">Church</label>
 		        <select class="form-control" id="church" name="church">

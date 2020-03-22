@@ -22,6 +22,16 @@
         </div>
     </div>
 @endif
+@if (session()->has('error'))
+<div class="col-sm-12">
+    <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+    	<strong>Sorry!</strong> {{ session()->get('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+</div>
+@endif
 
 <div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
@@ -45,7 +55,7 @@
                     <td>{{$marriage->wife->confirmation->baptismal->last_name}}, {{$marriage->wife->confirmation->baptismal->first_name}} {{$marriage->wife->confirmation->baptismal->middle_name}}</td>
                     <td>{{$marriage->church}}</td>
 		      		<td>
-		      			<a href="/marriage/{{$marriage->id}}">
+		      			<a href="{{route('marriage.show',$marriage->id)}}">
 		      				<button class="btn btn-outline-primary" >Complete Record</button>
 		      			</a>
 		      		</td>

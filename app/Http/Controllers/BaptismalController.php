@@ -88,11 +88,20 @@ class BaptismalController extends Controller
     public function show($id)
     {
         $baptismal = Baptismal::findorFail($id);
+        $facilitator_3 = null;
+        if ($baptismal->baptismalFacilitator->facilitator_3 == null)
+        {
+            $facilitator_3='None';
+        }
+        else
+        {
+            $facilitator_3 = $baptismal->baptismalFacilitator->facilitator_3;
+        }
         if(auth()->user()->church == $baptismal->place_of_baptism 
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.baptismal_show', compact('baptismal'));
+            return view('pages.baptismal_show', compact('baptismal','facilitator_3'));
         } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
     }
 

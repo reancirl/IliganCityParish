@@ -97,7 +97,7 @@
 
 	    	<tr>
 		      <th scope="row">Facilitator 3</th>
-		      <td>{{$baptismal->baptismalFacilitator->facilitator_3}}</td>
+		      <td>{{$facilitator_3}}</td>
 		    </tr>
 
 		    <tr>

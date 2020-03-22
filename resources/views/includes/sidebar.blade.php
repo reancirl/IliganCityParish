@@ -9,17 +9,19 @@
       </a>
     </li>
     <li class="nav-item nav-category">Main Menu</li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('home') }}">
-        <i class="menu-icon typcn typcn-home-outline"></i>
-        <span class="menu-title">Home</span>
-      </a>
+    @can('super-admin')
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('home') }}">
+          <i class="menu-icon typcn typcn-home-outline"></i>
+          <span class="menu-title">Home</span>
+        </a>
+      </li>
+    @endcan
     <li class="nav-item">
       <a class="nav-link" href="{{ route('reports.index') }}">
         <i class="menu-icon typcn typcn-th-large-outline"></i>
         <span class="menu-title">Reports</span>
       </a>
-    </li>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('baptismal.index') }}">

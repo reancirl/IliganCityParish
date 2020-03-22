@@ -21,7 +21,16 @@
         </div>
     </div>
 @endif
-
+@if (session()->has('error'))
+<div class="col-sm-12">
+    <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+    	<strong>Sorry!</strong> {{ session()->get('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+</div>
+@endif
 <div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
 		  <div class="card-body">

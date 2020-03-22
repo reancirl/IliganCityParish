@@ -91,6 +91,7 @@
           <div class="form-group">
             <label for="updated_parents_type_of_marriage">Parents type of marriage</label>
             <select class="form-control" id="updated_parents_type_of_marriage" name="updated_parents_type_of_marriage">
+              <option value="Not-married">Not-married</option>
               <option value="Civil">Civil</option>
               <option value="Church">Church</option>
             </select>
@@ -100,7 +101,7 @@
         <div class="col">
           <div class="form-group">
             <label for="parents_marriage_place">Parents marriage place</label>
-            <input type="text" class="form-control" id="parents_marriage_place" name="parents_marriage_place" placeholder="If not married. Put none" required autocomplete="off" value="{{ old('parents_marriage_place') }}">
+            <input type="text" class="form-control" id="parents_marriage_place" name="parents_marriage_place" autocomplete="off" value="{{ old('parents_marriage_place') }}">
           </div>
         </div>
 

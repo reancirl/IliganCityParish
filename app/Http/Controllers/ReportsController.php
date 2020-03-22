@@ -148,4 +148,8 @@ class ReportsController extends Controller
         $pdf = PDF::loadView('reports.generateYearlyPDF', compact('marriage','confirmation', 'baptismal'));
         return $pdf->download('yearly_report.pdf');
     }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

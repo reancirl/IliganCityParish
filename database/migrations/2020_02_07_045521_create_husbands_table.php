@@ -17,7 +17,7 @@ class CreateHusbandsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('updated_parents_type_of_marriage');
-            $table->string('parents_marriage_place');
+            $table->string('parents_marriage_place')->nullable();
             $table->string('status');
             $table->string('education');
 

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Add Marriage Record')
+@section('title','Search Husband Record')
 
 @section('content')
 
@@ -65,7 +65,7 @@
 	                        <td>
 	                        	{{$confirmation->baptismal->last_name}},{{$confirmation->baptismal->first_name}} 						{{$confirmation->baptismal->middle_name}} 
 	                        </td>
-	                    	<td>{{$confirmation->baptismal->date_of_birth}}</td>
+	                    	<td>{{Carbon\Carbon::parse($confirmation->baptismal->date_of_birth)->formatLocalized('%b %d, %Y')}}</td>
 	                    	<td>
 	                      		<a href="/marriage/husband/{{$wife->id}}/{{$confirmation->id}}">
 	                        		<button class="btn btn-outline-primary" >This Record</button>

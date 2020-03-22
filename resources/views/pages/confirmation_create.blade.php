@@ -7,6 +7,7 @@
 <h2>Add Confirmation Record</h2>
   <a href="/confirmation/addConfirmation">
     <button type="button" class="btn btn-outline-primary">
+      <i class="typcn typcn-arrow-left"></i>
       Go Back
     </button>
     <br>
@@ -155,6 +156,35 @@
          </table>
       </div>
 
+  <h3>Facilitators Details</h3>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="facilitator_1">Primary Facilitator</label>
+        <input type="text" class="form-control" id="facilitator_1" name="facilitator_1" required autocomplete="off" value="{{ old('facilitator_1') }}">
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <label for="facilitator_2">Facilitator 2</label>
+        <input type="text" class="form-control" id="facilitator_2" name="facilitator_2" required autocomplete="off" value="{{ old('facilitator_2') }}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="facilitator_3">Facilitator 3</label>
+        <input type="text" class="form-control" id="facilitator_3" name="facilitator_3" autocomplete="off" value="{{ old('facilitator_3') }}">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Add Record</button>
+
+</form>
+
 <script type="text/javascript">
     $('.addRow').on('click',function(){
         addRow();
@@ -182,11 +212,4 @@
         } 
     });
 </script>
-
-
-
-    <button type="submit" class="btn btn-primary btn-lg btn-block">Add Record</button>
-
-    </form>
-
 @endsection

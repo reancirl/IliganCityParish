@@ -38,9 +38,6 @@ class UsersController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        // if($request->church == null){
-        //     $request->church = 'St.Michael The Archangel Parish';
-        // }
         $user->password = Hash::make('password');
 
         $newUserId = User::latest()->first();

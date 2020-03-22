@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <section>
 	<h3>Couple Details</h3>
       <div class="row">
@@ -58,7 +57,7 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="church">Place of Confirmation</label>
+            <label for="church">Place of Marriage</label>
             <select class="form-control" id="church" name="church">
               <option value="St.Michael The Archangel Parish Church">St.Michael The Archangel Parish Church</option>
               <option value="San Lorenzo Ruiz Parish Church">San Lorenzo Ruiz Parish Church</option>
@@ -99,9 +98,83 @@
       </div>
     @endcan
 
+    <br>
+    <h3>Sponsor Details</h3>
+    <div class="form-group" >
+         <table class="table table-bordered">
+            <thead>
+             <tr>
+               <th>Sponsor Name</th>
+            
+               <th><a href="#a" class="addRow btn btn-success"><i class="typcn typcn-plus"></i></a></th>
+             </tr>
+            </thead>
 
-      <button type="submit" class="btn btn-primary btn-block btn-lg">Add Record</i></button>
+            <tbody>
+             <tr>
+               <td><input type="text" name="sponsor_name[]" class="form-control" required autocomplete="off"></td>
+
+               <td><a href="#a" class="btn btn-danger remove"><i class="typcn typcn-delete-outline"></i></a></td>
+             </tr>
+
+            </tbody>
+         </table>
+      </div>
+
+  <h3>Facilitators Details</h3>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="facilitator_1">Primary Facilitator</label>
+        <input type="text" class="form-control" id="facilitator_1" name="facilitator_1" required autocomplete="off" value="{{ old('facilitator_1') }}">
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <label for="facilitator_2">Facilitator 2</label>
+        <input type="text" class="form-control" id="facilitator_2" name="facilitator_2" required autocomplete="off" value="{{ old('facilitator_2') }}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="facilitator_3">Facilitator 3</label>
+        <input type="text" class="form-control" id="facilitator_3" name="facilitator_3" autocomplete="off" value="{{ old('facilitator_3') }}">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Add Record</button>
 
 </form>
+
+<script type="text/javascript">
+    $('.addRow').on('click',function(){
+        addRow();
+    });
+
+
+    function addRow()
+    {
+        var tr1='<tr>'+
+        '<td><input type="text" name="sponsor_name[]" class="form-control" required autocomplete="off"></td>'+
+        '<td><a href="#a" class="btn btn-danger remove"><i class="typcn typcn-delete-outline"></i></a></td>'+
+        '</tr>';
+        $('tbody').append(tr1);
+    };
+
+
+    $('.remove').live('click',function(){
+        var last=$('tbody tr').length;
+        if(last==1){
+            alert("Must have atleast 1 sponsor");
+        }
+        else{
+             $(this).parent().parent().remove();
+        } 
+    });
+</script>
 
 @endsection

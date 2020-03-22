@@ -86,17 +86,28 @@
           <div class="form-group">
             <label for="place_of_baptism">Place of Baptismal</label>
             <select class="form-control" id="place_of_baptism" name="place_of_baptism" value="{{ old('place_of_baptism') }}">
-              <option value="St.Michael The Archangel Parish">St.Michael The Archangel Parish</option>
-              <option value="San Lorenzo Ruiz Parish">San Lorenzo Ruiz Parish</option>
-              <option value="San Roque Parish">San Roque Parish</option>
-              <option value="Lord of the Holy Cross Parish">Lord of the Holy Cross Parish</option>
-              <option value="Corpus Christi Parish">Corpus Christi Parish</option>
-              <option value="Resurrection Of the Lord Parish">Resurrection Of the Lord Parish</option>
-              <option value="Redemptorist Parish">Redemptorist Parish</option>
-              <option value="St. Vincent Ferrer Parish">St. Vincent Ferrer Parish</option>
-              <option value="Resurrection of The Lord Chinese-Filipino Parish">Resurrection of The Lord Chinese-Filipino Parish</option>
-              <option value="San Isidro Labrador Parish">San Isidro Labrador Parish</option>
-              <option value="Sto. Rosario Parish">Sto. Rosario Parish</option>
+              <option value="St.Michael The Archangel Parish Church" @if($baptismal->place_of_baptism == 'St.Michael The Archangel Parish Church') selected @endif>
+                St.Michael The Archangel Parish Church</option>
+              <option value="San Lorenzo Ruiz Parish Church" @if($baptismal->place_of_baptism == 'San Lorenzo Ruiz Parish Church') selected @endif>
+                San Lorenzo Ruiz Parish Church</option>
+              <option value="San Roque Parish Church" @if($baptismal->place_of_baptism == 'San Roque Parish Church') selected @endif>
+                San Roque Parish Church</option>
+              <option value="Lord of the Holy Cross Parish Church" @if($baptismal->place_of_baptism == 'Lord of the Holy Cross Parish Church') selected @endif>
+                Lord of the Holy Cross Parish Church</option>
+              <option value="Corpus Christi Parish Church" @if($baptismal->place_of_baptism == 'Corpus Christi Parish Church') selected @endif>
+                Corpus Christi Parish Church</option>
+              <option value="Resurrection Of the Lord Parish Church" @if($baptismal->place_of_baptism == 'Resurrection Of the Lord Parish Church') selected @endif>
+                Resurrection Of the Lord Parish Church</option>
+              <option value="Redemptorist Parish Church" @if($baptismal->place_of_baptism == 'Redemptorist Parish Church') selected @endif>
+                Redemptorist Parish Church</option>
+              <option value="St. Vincent Ferrer Parish Church" @if($baptismal->place_of_baptism == 'St. Vincent Ferrer Parish Church') selected @endif>
+                St. Vincent Ferrer Parish Church</option>
+              <option value="Resurrection of The Lord Chinese-Filipino Parish Church" @if($baptismal->place_of_baptism == 'Resurrection of The Lord Chinese-Filipino Parish Church') selected @endif>
+                Resurrection of The Lord Chinese-Filipino Parish Church</option>
+              <option value="San Isidro Labrador Parish Church" @if($baptismal->place_of_baptism == 'San Isidro Labrador Parish Church') selected @endif>
+                San Isidro Labrador Parish Church</option>
+              <option value="Sto. Rosario Parish Church" @if($baptismal->place_of_baptism == 'Sto. Rosario Parish Church') selected @endif>
+                Sto. Rosario Parish Church</option>
               <!-- <option value=""></option> -->
             </select>
           </div>

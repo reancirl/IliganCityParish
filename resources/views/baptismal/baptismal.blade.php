@@ -56,7 +56,7 @@
                     <td>{{$baptismal->place_of_baptism}}</td>
                     <td>{{$baptismal->gender}}</td>
 		      		<td>
-		      			<a href="/baptismal/{{$baptismal->id}}">
+		      			<a href="{{url('/baptismal',$baptismal->id)}}">
 		      				<button class="btn btn-outline-primary" >View Record</button>
 		      			</a>
 		      		</td>

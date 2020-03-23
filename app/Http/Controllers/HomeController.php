@@ -9,6 +9,7 @@ use App\Marriage;
 use App\Baptismal;
 use App\Confirmation;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class HomeController extends Controller
 {

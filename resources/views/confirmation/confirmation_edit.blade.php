@@ -113,12 +113,12 @@
         </div>
       </div>
     @endcanany
-    @can('cathedral-admin')
+    @can('admin')
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="church">Place of Confirmation</label>
-            <input type="text" class="form-control" id="church" name="church" value="St.Michael The Archangel Parish Church" readonly>
+            <input type="text" class="form-control" id="church" name="church" value="{{ Auth::user()->church }}" readonly>
           </div>
         </div> 
       </div>

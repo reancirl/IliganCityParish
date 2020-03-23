@@ -114,7 +114,7 @@
              <tr>
                <td><input type="text" name="sponsor_name[]" class="form-control" required autocomplete="off"></td>
 
-               <td><a href="#a" class="btn btn-danger remove"><i class="typcn typcn-delete-outline"></i></a></td>
+               <td width="15%"><a href="#a" class="btn btn-danger remove"><i class="typcn typcn-delete-outline"></i></a></td>
              </tr>
 
             </tbody>

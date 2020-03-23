@@ -18,19 +18,19 @@ class MarriageController extends Controller
     public function index()
     {
         $marriage = Marriage::all();
-        return view('pages.marriage',compact('marriage'));
+        return view('marriage.marriage',compact('marriage'));
     }
 
     public function searchWife()
     {
         $confirmation = Confirmation::all();
-        return view('pages.marriage_searchWife', compact('confirmation'));
+        return view('marriage.marriage_searchWife', compact('confirmation'));
     }
 
     public function createWife($id)
     {
         $confirmation = Confirmation::findorFail($id);
-        return view('pages.marriage_createWife', compact('confirmation'));
+        return view('marriage.marriage_createWife', compact('confirmation'));
     }
 
     public function storeWife(Request $request, $id)
@@ -60,7 +60,7 @@ class MarriageController extends Controller
     {
         $wife = Wife::findorFail($id);
         $confirmation = Confirmation::all();
-        return view('pages.marriage_searchHusband', compact('confirmation','wife'));
+        return view('marriage.marriage_searchHusband', compact('confirmation','wife'));
     }
     
     public function createHusband($wifeId,$id)
@@ -68,7 +68,7 @@ class MarriageController extends Controller
         $marriage = Marriage::all();
         $wife = Wife::findorFail($wifeId);
         $confirmation = Confirmation::findorFail($id);
-        return view('pages.marriage_createHusband', compact('confirmation', 'wife','marriage'));
+        return view('marriage.marriage_createHusband', compact('confirmation', 'wife','marriage'));
     }
 
     public function storeHusband(Request $request, $wifeId, $id)
@@ -99,7 +99,7 @@ class MarriageController extends Controller
     {
         $wife = Wife::findorFail($wifeId);
         $husband = Husband::findorFail($husbandId);
-        return view('pages.marriage_create', compact('husband','wife'));
+        return view('marriage.marriage_create', compact('husband','wife'));
     }
 
     public function store(Request $request,$wifeId,$husbandId)
@@ -180,7 +180,7 @@ class MarriageController extends Controller
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.marriage_show', compact('marriage', 'facilitator_3','wife_parents','husband_parents'));
+            return view('marriage.marriage_show', compact('marriage', 'facilitator_3','wife_parents','husband_parents'));
         } return redirect('/marriage')->with('error', 'Not authorized to view this Record');
     }
 
@@ -191,7 +191,7 @@ class MarriageController extends Controller
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.marriage_edit', compact('marriage'));
+            return view('marriage.marriage_edit', compact('marriage'));
         } return redirect('/marriage')->with('error', 'Not authorized to view this Record');
     }
 

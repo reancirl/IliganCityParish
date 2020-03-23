@@ -14,14 +14,14 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('pages.users_index',compact('users'));
+        $users = User::all()->skip(1);
+        return view('users.users_index',compact('users'));
     }
 
     public function create()
     {
         $roles = Role::all();
-        return view('pages.users_create',compact('roles'));
+        return view('users.users_create',compact('roles'));
     }
 
     public function store(Request $request)
@@ -56,7 +56,7 @@ class UsersController extends Controller
             $user->church = 'Diocese of Iligan';
         }
         else if($userId == 2){
-            $user->church = 'St.Michael The Archangel Parish';
+            $user->church = 'St.Michael The Archangel Parish Church';
         }
         else{
             $user->church = $request->church;
@@ -69,10 +69,14 @@ class UsersController extends Controller
     public function edit($id)
     {
         $users = User::findOrFail($id);
+        if($id == 1)
+        {
+            return redirect('/users');
+        }
         $roles = Role::all();
         $roleId = implode($users->roles->pluck('id')->toArray());
 
-        return view('pages.users_edit',compact('users','roles','roleId'));
+        return view('users.users_edit',compact('users','roles','roleId'));
     }
 
     public function update(Request $request, $id)
@@ -82,7 +86,7 @@ class UsersController extends Controller
         $temp = implode($user->roles->pluck('id')->toArray());
         if($temp == 2)
         {
-            $user->church = 'St.Michael The Archangel Parish';
+            $user->church = 'St.Michael The Archangel Parish Church';
         }
         else if($temp == 1) {
             $user->church = 'Diocese of Iligan';

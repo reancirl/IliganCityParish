@@ -56,6 +56,10 @@ Route::prefix('reports')->middleware('preventbackbutton')->group(function(){
 	Route::get('/generate-yearly-report','ReportsController@generateYearly')->name('reports.generateYearly');	
 });
 
+Route::prefix('activity-log')->middleware('preventbackbutton')->group(function(){
+	Route::get('/','ActivityLogController@index')->name('activityLog.index');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

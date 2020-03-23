@@ -3,9 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Baptismal extends Model
 {
+    use LogsActivity;
+    
+    protected static $logAttributes = ["*"];
+
+    protected static $logName = 'Baptismal';
+
+    protected static $logOnlyDirty = true;
+
     protected $guarded = [];
 
     public function confirmation()

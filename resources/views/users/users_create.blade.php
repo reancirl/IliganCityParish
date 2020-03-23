@@ -63,7 +63,6 @@
 		<div class="form-group" id="test1" style="display: none">
 			<label for="church" class="mt-1">Church</label>
 	        <select class="form-control" id="church" name="church" value="{{ old('church') }}">
-	        <option selected disabled>Choose Church: </option>
 	        <option value="San Lorenzo Ruiz Parish Church">San Lorenzo Ruiz Parish Church</option>
 	        <option value="San Roque Parish Church">San Roque Parish Church</option>
 	        <option value="Lord of the Holy Cross Parish Church">Lord of the Holy Cross Parish Church</option>

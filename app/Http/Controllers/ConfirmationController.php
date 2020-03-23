@@ -15,19 +15,19 @@ class ConfirmationController extends Controller
     public function index()
     {
         $confirmation = Confirmation::all();
-        return view('pages.confirmation',compact('confirmation'));
+        return view('confirmation.confirmation',compact('confirmation'));
     }
 
     public function searchBaptismal()
     {
         $baptismal = Baptismal::all();
-        return view('pages.confirmation_add', compact('baptismal'));
+        return view('confirmation.confirmation_add', compact('baptismal'));
     }
 
     public function create($id)
     {
         $baptismal = Baptismal::findorFail($id);
-        return view('pages.confirmation_create', compact('baptismal'));
+        return view('confirmation.confirmation_create', compact('baptismal'));
     }
 
     public function store(Request $request, $id)
@@ -91,7 +91,7 @@ class ConfirmationController extends Controller
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.confirmation_show', compact('confirmation', 'facilitator_3'));
+            return view('confirmation.confirmation_show', compact('confirmation', 'facilitator_3'));
         } return redirect('/confirmation')->with('error', 'Not authorized to view this Record');
     }
 
@@ -102,7 +102,7 @@ class ConfirmationController extends Controller
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.confirmation_edit', compact('confirmation'));
+            return view('confirmation.confirmation_edit', compact('confirmation'));
         } return redirect('/confirmation')->with('error', 'Not authorized to view this Record');
     }
 

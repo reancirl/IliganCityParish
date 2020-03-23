@@ -14,12 +14,12 @@ class BaptismalController extends Controller
     public function index()
     {
         $baptismal = Baptismal::all();
-        return view('pages.baptismal',compact('baptismal'));
+        return view('baptismal.baptismal',compact('baptismal'));
     }
 
     public function create()
     {
-        return view('pages.baptismal_create');
+        return view('baptismal.baptismal_create');
     }
 
     public function store(Request $request)
@@ -101,7 +101,7 @@ class BaptismalController extends Controller
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.baptismal_show', compact('baptismal','facilitator_3'));
+            return view('baptismal.baptismal_show', compact('baptismal','facilitator_3'));
         } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
     }
 
@@ -112,7 +112,7 @@ class BaptismalController extends Controller
         || auth()->user()->church == 'St.Michael The Archangel Parish Church' 
         || auth()->user()->church == 'Diocese of Iligan') 
         {
-            return view('pages.baptismal_edit', compact('baptismal'));
+            return view('baptismal.baptismal_edit', compact('baptismal'));
         } return redirect('/baptismal')->with('error', 'Not authorized to view this Record');
     }
 

@@ -5,10 +5,17 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, LogsActivity;
+
+    protected static $logAttributes = ['name','email','church','roles'];
+
+    protected static $logName = 'User Management';
+
+    protected static $logOnlyDirty = true;
 
     protected $fillable = [
         'name', 'email', 'password',

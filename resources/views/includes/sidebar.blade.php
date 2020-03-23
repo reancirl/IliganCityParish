@@ -12,14 +12,14 @@
     @can('super-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('home') }}">
-          <i class="menu-icon typcn typcn-home-outline"></i>
-          <span class="menu-title">Home</span>
+          <i class="menu-icon typcn typcn-th-large-outline"></i>
+          <span class="menu-title">Dashboard</span>
         </a>
       </li>
     @endcan
     <li class="nav-item">
       <a class="nav-link" href="{{ route('reports.index') }}">
-        <i class="menu-icon typcn typcn-th-large-outline"></i>
+        <i class="menu-icon typcn typcn-chart-line-outline"></i>
         <span class="menu-title">Reports</span>
       </a>
     </li>
@@ -46,6 +46,12 @@
         <a class="nav-link" href="{{ route('users.index')}}">  
           <i class="menu-icon typcn typcn-group-outline"></i>
           <span class="menu-title">User Management</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('activityLog.index')}}">  
+          <i class="menu-icon typcn typcn-archive"></i>
+          <span class="menu-title">Activity Log</span>
         </a>
       </li>
     @endcan

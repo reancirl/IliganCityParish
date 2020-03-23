@@ -83,7 +83,6 @@
 		<div class="form-group" id="test1" style="display: none">
 				<label for="church" class="mt-1">Church</label>
 		        <select class="form-control" id="church" name="church">
-		        <option disabled selected>Choose Church:</option>
 		        <option value="San Lorenzo Ruiz Parish Church" @if($users->church == 'San Lorenzo Ruiz Parish Church') selected @endif>
 		        	San Lorenzo Ruiz Parish Church</option>
 		        <option value="San Roque Parish Church" @if($users->church == 'San Roque Parish Church') selected @endif>

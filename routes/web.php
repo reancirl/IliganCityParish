@@ -56,7 +56,7 @@ Route::prefix('reports')->middleware('preventbackbutton')->group(function(){
 	Route::get('/generate-yearly-report','ReportsController@generateYearly')->name('reports.generateYearly');	
 });
 
-Route::prefix('activity-log')->middleware('preventbackbutton')->group(function(){
+Route::prefix('activity-log')->middleware(['can:activity-log-view','preventbackbutton'])->group(function(){
 	Route::get('/','ActivityLogController@index')->name('activityLog.index');
 });
 

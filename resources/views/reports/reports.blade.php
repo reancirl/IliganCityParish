@@ -9,12 +9,18 @@
 	hr {
 		border: 1px solid #0078ff;
 	}
+	.total-record-1
+	{
+		height: 8em;
+	    width: 100%;
+	    margin-right: 1em;
+	    background-color: #0078ff;
+	}
 	.card-report-1 {
 		background-color: #ffffff;
 		height: 14em;
 	    width: 95%;
 	    margin-right: 1em;
-	    border-radius: 45px/5px;
 	    box-shadow: 1px 1px 5px rgba(0,0,0,1);
 	    margin-top: 1em;
 	}
@@ -57,27 +63,31 @@
 	<section>
 		<div class="row mb-4">
 			<div class="col-sm-3">
-				<div class="total-record bg-1">
+				<div class="total-record-1 bg-1">
 		            <div class="outline-1"><i class="mdi mdi-church"></i>{{ $baptismal }}</div>
-		            <div class="outline-2">Total number of baptismal records</div>
+		            <div class="outline-2">Total number of</div>
+		            <div class="outline-2">baptismal records</div>
 		        </div>
 			</div>
 			<div class="col-sm-3">
-				<div class="total-record bg-1">
+				<div class="total-record-1 bg-1">
 		            <div class="outline-1"><i class="typcn typcn-document"></i>{{ $confirmation }}</div>
-		            <div class="outline-2">Total number of confirmation records</div>
+		            <div class="outline-2">Total number of</div>
+		            <div class="outline-2"> confirmation records</div>
 		        </div>
 			</div>
 			<div class="col-sm-3">
-				<div class="total-record bg-1">
+				<div class="total-record-1 bg-1">
 		            <div class="outline-1"><i class="mdi mdi-heart-box-outline"></i>{{ $marriage }}</div>
-		            <div class="outline-2">Total number of marriage records</div>
+		            <div class="outline-2">Total number of</div>
+		            <div class="outline-2">marriage records</div>
 		        </div>
 			</div>
 			<div class="col-sm-3">
-				<div class="total-record bg-1">
+				<div class="total-record-1 bg-1">
 		            <div class="outline-1"><i class="typcn typcn-clipboard"></i>100</div>
-		            <div class="outline-2">Total number of first communion</div>
+		            <div class="outline-2">Total number of</div>
+		            <div class="outline-2">first communion records</div>
 		        </div>
 			</div>
 		</div>

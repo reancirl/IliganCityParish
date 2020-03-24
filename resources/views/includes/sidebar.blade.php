@@ -48,13 +48,15 @@
           <span class="menu-title">User Management</span>
         </a>
       </li>
+    @endcan
+    @canany(['super-admin','cathedral-admin'])
       <li class="nav-item">
         <a class="nav-link" href="{{ route('activityLog.index')}}">  
           <i class="menu-icon typcn typcn-archive"></i>
           <span class="menu-title">Activity Log</span>
         </a>
       </li>
-    @endcan
+    @endcanany
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
         <i class="menu-icon typcn typcn-user-outline"></i>

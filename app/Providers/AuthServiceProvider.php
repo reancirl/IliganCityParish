@@ -28,6 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('super-admin', function($user){
             return $user->hasRole('SuperAdmin');
         });
+        Gate::define('activity-log-view', function($user){
+            return $user->hasAnyRoles(['SuperAdmin','CathedralAdmin']);
+        });
         Gate::define('cathedral-admin', function($user){
             return $user->hasRole('CathedralAdmin');
         });

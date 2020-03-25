@@ -18,3 +18,6 @@ Undergrad capstone project titled A Web based Record Management System for Iliga
 	<li>php artisan db:seed</li>
 	<li>php artisan serve</li>
 </ol>
+<hr>
+email : super@admin.com <br>
+password : password

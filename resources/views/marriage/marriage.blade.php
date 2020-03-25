@@ -39,7 +39,7 @@
 		    <table class="table table-hover table-bordered rounded" id="marriage">
 		      <thead>
 		      	<tr>
-		      		<th>ID</th>
+		      		<th>#</th>
 		      		<th>Husband Name</th>
 		      		<th>Wife Name</th>
 		      		<th>Place of Marriage</th>
@@ -47,9 +47,9 @@
 		      	</tr>
 		      </thead>
 		      <tbody>
-		      	@foreach($marriage as $marriage)
+		      	@foreach($marriage as $key$marriage)
 		      	<tr>
-		      		<td>{{$marriage->id}}</td>
+		      		<td>{{++$key}}</td>
 		      		<td>{{$marriage->husband->confirmation->baptismal->last_name}}, {{$marriage->husband->confirmation->baptismal->first_name}} {{$marriage->husband->confirmation->baptismal->middle_name}}</td>
 
                     <td>{{$marriage->wife->confirmation->baptismal->last_name}}, {{$marriage->wife->confirmation->baptismal->first_name}} {{$marriage->wife->confirmation->baptismal->middle_name}}</td>

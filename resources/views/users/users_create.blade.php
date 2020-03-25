@@ -1,13 +1,6 @@
 @extends('layouts.master')
 
 @section('title','User Management-Create')
-@section('style')
-<style type="text/css">
-	.mt-3-5{
-		margin-top: 15px;
-	}
-</style>
-@endsection
 @section('content')
 <h3>Add new user</h3>
 	<a href="{{ url('/users') }}">

@@ -11,6 +11,16 @@ Route::prefix('baptismal')->middleware('preventbackbutton')->group(function(){
 	Route::patch('/{id}','BaptismalController@update')->name('baptismal.update');
 });
 
+Route::prefix('first-communion')->middleware('preventbackbutton')->group(function(){
+	Route::get('/','FirstCommunionController@index')->name('communion.index');
+	Route::get('/search-baptismal-record','FirstCommunionController@search')->name('communion.search');
+	Route::get('/{id}/create','FirstCommunionController@create')->name('communion.create');
+	Route::post('/{id}','FirstCommunionController@store')->name('communion.store');
+	Route::get('/{id}/edit','FirstCommunionController@edit')->name('communion.edit');
+	Route::patch('/{id}','FirstCommunionController@update')->name('communion.update');
+	Route::delete('/{id}','FirstCommunionController@destroy')->name('communion.delete');
+});
+
 Route::prefix('confirmation')->middleware('preventbackbutton')->group(function(){
 	Route::get('/','ConfirmationController@index')->name('confirmation.index');
 	Route::get('/addConfirmation','ConfirmationController@searchBaptismal')->name('confirmation.search');
@@ -59,6 +69,11 @@ Route::prefix('reports')->middleware('preventbackbutton')->group(function(){
 Route::prefix('activity-log')->middleware(['can:activity-log-view','preventbackbutton'])->group(function(){
 	Route::get('/','ActivityLogController@index')->name('activityLog.index');
 });
+
+Route::get('account-settings', 'AccountSettingsController@index')->name('account.index')->middleware('preventbackbutton');
+Route::post('account-settings', 'AccountSettingsController@store')->name('account.store')->middleware('preventbackbutton');
+Route::get('account-settings-email-username', 'AccountSettingsController@edit')->name('account.edit')->middleware('preventbackbutton');
+Route::post('account-settings-email-username', 'AccountSettingsController@update')->name('account.update')->middleware('preventbackbutton');
 
 Route::get('/', function () {
     return view('welcome');

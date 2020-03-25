@@ -31,4 +31,9 @@ class Baptismal extends Model
     {
         return $this->hasOne('App\BaptismalFacilitator');
     }
+
+    public function communion()
+    {
+        return $this->hasOne('App\FirstCommunion');
+    }
 }

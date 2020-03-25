@@ -67,7 +67,7 @@
 	</div>
 	<div class="col-sm-3">
 		<div class="card-report bg-1">
-            <div class="outline-1"><i class="typcn typcn-clipboard"></i>100</div>
+            <div class="outline-1"><i class="typcn typcn-clipboard"></i>{{ $communion }}</div>
             <div class="outline-2">Total number of</div>
             <div class="outline-2">first communion records</div>
         </div>

@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Total First Communion Records</th>
-                    <td>100</td>
+                    <td>{{ count($fcom) }}</td>
                 </tr>
             </tbody>
         </table>

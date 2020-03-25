@@ -81,6 +81,10 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request , [
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
         $user = User::findOrFail($id);
         $user->roles()->sync($request->roles);
         $temp = implode($user->roles->pluck('id')->toArray());

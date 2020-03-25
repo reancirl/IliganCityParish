@@ -37,7 +37,7 @@
 		    <table class="table table-hover table-bordered rounded" id="confirmation">
 		      <thead>
 		      	<tr>
-		      		<th>ID</th>
+		      		<th>#</th>
 		      		<th>Last Name</th>
 		      		<th>First Name</th>
 		      		<th>Middle Name</th>
@@ -47,9 +47,9 @@
 		      	</tr>
 		      </thead>
 		      <tbody>
-		      	@foreach($confirmation as $confirmation)
+		      	@foreach($confirmation as $key=>$confirmation)
 		      	<tr>
-		      		<td>{{$confirmation->id}}</td>
+		      		<td>{{++$key}}</td>
 		      		<td>{{$confirmation->baptismal->last_name}}</td>
                     <td>{{$confirmation->baptismal->first_name}}</td>
                     <td>{{$confirmation->baptismal->middle_name}}</td>

@@ -42,7 +42,7 @@ class ConfirmationController extends Controller
             'facilitator_2'=>'required',
         ]);
 
-        $baptismal = Baptismal::find($id);
+        $baptismal = Baptismal::findorFail($id);
 
         $confirmation = new Confirmation();
         $confirmation->baptismal_id = $baptismal->id;
@@ -118,7 +118,7 @@ class ConfirmationController extends Controller
             'facilitator_2'=>'required',
         ]);
 
-        $confirmation = Confirmation::find($id);
+        $confirmation = Confirmation::findorFail($id);
         $confirmation->date_of_seminar = $request->date_of_seminar;
         $confirmation->date_of_confirmation = $request->date_of_confirmation;
         $confirmation->church = $request->church;

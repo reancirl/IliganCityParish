@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Marriage;
 use App\Baptismal;
 use App\Confirmation;
+use App\FirstCommunion;
 use Illuminate\Http\Request;
 class ReportsController extends Controller
 {
@@ -37,6 +38,7 @@ class ReportsController extends Controller
         $baptismal = Baptismal::all()->where('place_of_baptism',$church)->count();
         $confirmation = Confirmation::all()->where('church',$church)->count();
         $marriage = Marriage::all()->where('church',$church)->count();
+        $communion = FirstCommunion::all()->where('church',$church)->count();
 
         $cathedral_mar = Marriage::all()
                         ->sortByDesc('created_at')
@@ -57,6 +59,7 @@ class ReportsController extends Controller
             $cathedral_con = 0;
         }
         else $cathedral_con = $cathedral_con->count();
+
         $year = date('Y');
         $year = Baptismal::whereYear('created_at', '=', $year);
         $jan = $year->whereMonth('created_at', '=', '01')->get()->count();
@@ -94,7 +97,7 @@ class ReportsController extends Controller
         $year = Baptismal::whereYear('created_at', '=', $year);
         $dec = $year->whereMonth('created_at', '=', '12')->get()->count();
         $year = date('Y');
-    	return view('reports.reports', compact('baptismal', 'confirmation', 'marriage', 'countWeeklyMarriage', 'countYearly','cathedral_mar','cathedral_con','jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec','year'));
+    	return view('reports.reports', compact('baptismal', 'confirmation', 'marriage','communion', 'countWeeklyMarriage', 'countYearly','cathedral_mar','cathedral_con','jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec','year'));
     }
     public function weekly()
     {
@@ -148,7 +151,18 @@ class ReportsController extends Controller
         }
         else $baptismal;
 
-    	return view('reports.yearlyPDF', compact('marriage','confirmation', 'baptismal'));
+        $fcom = FirstCommunion::all()
+                    ->where('place_of_baptism',$church)
+                    ->sortByDesc('created_at')
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+        if($fcom == null){
+            $fcom = [];
+        }
+        else $fcom;
+
+    	return view('reports.yearlyPDF', compact('marriage','confirmation', 'baptismal','fcom'));
     }
     public function generateWeekly()
     {
@@ -198,8 +212,18 @@ class ReportsController extends Controller
         if($baptismal == null){
             $baptismal = [];
         }else $baptismal;
+        $fcom = FirstCommunion::all()
+                    ->where('place_of_baptism',$church)
+                    ->sortByDesc('created_at')
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+        if($fcom == null){
+            $fcom = [];
+        }
+        else $fcom;
 
-        $pdf = PDF::loadView('reports.generateYearlyPDF', compact('marriage','confirmation', 'baptismal'));
+        $pdf = PDF::loadView('reports.generateYearlyPDF', compact('marriage','confirmation', 'baptismal','fcom'));
         return $pdf->download('yearly_report.pdf');
     }
     public function dioceseWeekly()
@@ -248,8 +272,17 @@ class ReportsController extends Controller
             $baptismal = [];
         }
         else $baptismal;
+        $fcom = FirstCommunion::all()
+                    ->sortByDesc('created_at')
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+        if($fcom == null){
+            $fcom = [];
+        }
+        else $fcom;
 
-        return view('reports.dioceseYearly', compact('marriage','confirmation', 'baptismal'));
+        return view('reports.dioceseYearly', compact('marriage','confirmation', 'baptismal','fcom'));
     }
     public function generateDioceseWeekly()
     {
@@ -293,8 +326,17 @@ class ReportsController extends Controller
         if($baptismal == null){
             $baptismal = [];
         }else $baptismal;
+        $fcom = FirstCommunion::all()
+                    ->sortByDesc('created_at')
+                    ->groupBy(function($date) {
+                        return Carbon::parse($date->created_at)->format('Y');
+                    })->first();
+        if($fcom == null){
+            $fcom = [];
+        }
+        else $fcom;
 
-        $pdf = PDF::loadView('reports.generateDioceseYearlyPDF', compact('marriage','confirmation', 'baptismal'));
+        $pdf = PDF::loadView('reports.generateDioceseYearlyPDF', compact('marriage','confirmation', 'baptismal','fcom'));
         return $pdf->download('diocese_yearly_report.pdf');
     }
     public function __construct()

@@ -30,14 +30,14 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('baptismal.index') }}">
-        <i class="menu-icon typcn typcn"></i>
+      <a class="nav-link" href="{{ route('communion.index') }}">
+        <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">First Communion</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('confirmation.index') }}">
-        <i class="menu-icon typcn typcn-document-text"></i>
+        <i class="menu-icon typcn typcn-clipboard"></i>
         <span class="menu-title">Confirmation</span>
       </a>
     </li>
@@ -72,7 +72,7 @@
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="pages/samples/blank-page.html"> Account Settings </a>
+            <a class="nav-link" href="{{ route('account.index') }}"> Account Settings </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();

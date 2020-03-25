@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Marriage;
 use App\Baptismal;
 use App\Confirmation;
+use App\FirstCommunion;
 use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
 
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $baptismal = Baptismal::all()->count();
         $confirmation = Confirmation::all()->count();
         $marriage = Marriage::all()->count();
+        $communion = FirstCommunion::all()->count();
 
         $cathedral_bap = Baptismal::all()
                         ->where('place_of_baptism','St.Michael The Archangel Parish Church')
@@ -253,7 +255,7 @@ class HomeController extends Controller
         $data_bap = [$cathedral_bap,$sanLorenzo_bap,$sanRoque_bap,$holyCross_bap,$redemptorist_bap,$stoRosario_bap,$corpus_bap];
         $data_con = [$cathedral_con,$sanLorenzo_con,$sanRoque_con,$holyCross_con,$redemptorist_con,$stoRosario_con,$corpus_con];
         $data_mar = [$cathedral_mar,$sanLorenzo_mar,$sanRoque_mar,$holyCross_mar,$redemptorist_mar,$stoRosario_mar,$corpus_mar];
-        return view('home', compact('baptismal', 'confirmation', 'marriage','data_bap','data_con','data_mar'));
+        return view('home', compact('baptismal', 'confirmation', 'marriage','data_bap','data_con','data_mar','communion'));
     }
 
     public function __construct()

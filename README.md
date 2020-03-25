@@ -1,6 +1,7 @@
 Undergrad capstone project titled A Web based Record Management System for Iligan City Parish churches.
 <hr>
-<h3>Steps to setup:</h3>
+<h2>Steps to setup:</h2>
+In your gitbash
 <ol>
 	<li>Clone this repo: git clone https://github.com/reancirl/IliganCityParish.git</li>
 	<li>cd IliganCityParish</li>

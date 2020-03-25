@@ -47,7 +47,7 @@
 		      	</tr>
 		      </thead>
 		      <tbody>
-		      	@foreach($marriage as $key$marriage)
+		      	@foreach($marriage as $key=>$marriage)
 		      	<tr>
 		      		<td>{{++$key}}</td>
 		      		<td>{{$marriage->husband->confirmation->baptismal->last_name}}, {{$marriage->husband->confirmation->baptismal->first_name}} {{$marriage->husband->confirmation->baptismal->middle_name}}</td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Diocese of Iligan | Yearly Report</title>
+	<title>Diocese of Iligan | Yearly Report</title>
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.addons.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">

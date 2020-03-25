@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Yearly Report</title>
-	<link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
+    <title>Diocese of Iligan | Yearly Report</title>
+    <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/ionicons/css/ionicons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/typicons/src/font/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}">
@@ -22,18 +22,18 @@
 <body>
 
 <section class="container pt-5">
-	<a href="{{route('reports.index')}}">
-		<button type="button" class="btn btn-outline-primary btn-lg">
-		  <i class="typcn typcn-arrow-left"></i>Go Back
-		</button>
-	</a>
-	<a href="{{route('reports.generateYearly')}}">
-		<button type="button" class="btn btn-success btn-lg float-right">
-		  <i class="typcn typcn-document"></i>Download report
-		</button>
-	</a>
-	<hr class="mt-2">
-	<div>
+    <a href="{{route('reports.index')}}">
+        <button type="button" class="btn btn-outline-primary btn-lg">
+          <i class="typcn typcn-arrow-left"></i>Go Back
+        </button>
+    </a>
+    <a href="{{route('reports.generateDioceseYearly')}}">
+        <button type="button" class="btn btn-success btn-lg float-right">
+          <i class="typcn typcn-document"></i>Download report
+        </button>
+    </a>
+    <hr class="mt-2">
+    <div>
         <table class="table">
             <tbody>
                 <tr>
@@ -54,7 +54,7 @@
                 </tr>
             </tbody>
         </table>
-	</div>
+    </div>
 </section>
 
 </body>

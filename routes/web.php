@@ -1,10 +1,6 @@
 <?php
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware(['can:super-admin','preventbackbutton']);
-Route::get('/weeklyPDF','HomeController@createPDF')->name('weeklyPDF');
-Route::get('/generatePDF','HomeController@generatePDF')->name('generatePDF');
-Route::get('/yearlyPDF','HomeController@createYearlyPDF')->name('yearlyPDF');
-Route::get('/generateYearlyPDF','HomeController@generateYearlyPDF')->name('generateYearlyPDF');
 ////////////////////////////////////////////////////////////////////////////////////////////
 Route::prefix('baptismal')->middleware('preventbackbutton')->group(function(){
 	Route::get('/','BaptismalController@index')->name('baptismal.index');
@@ -53,7 +49,11 @@ Route::prefix('reports')->middleware('preventbackbutton')->group(function(){
 	Route::get('/weekly-report','ReportsController@weekly')->name('reports.weekly');
 	Route::get('/yearly-report','ReportsController@yearly')->name('reports.yearly');
 	Route::get('/generate-weekly-report','ReportsController@generateWeekly')->name('reports.generateWeekly');
-	Route::get('/generate-yearly-report','ReportsController@generateYearly')->name('reports.generateYearly');	
+	Route::get('/generate-yearly-report','ReportsController@generateYearly')->name('reports.generateYearly');
+	Route::get('/diocese-of-iligan-weekly-report','ReportsController@dioceseWeekly')->name('reports.dioceseWeekly');
+	Route::get('/diocese-of-iligan-yearly-report','ReportsController@dioceseYearly')->name('reports.dioceseYearly');
+	Route::get('/generate-diocese-weekly-report','ReportsController@generateDioceseWeekly')->name('reports.generateDioceseWeekly');
+	Route::get('/generate-diocese-yearly-report','ReportsController@generateDioceseYearly')->name('reports.generateDioceseYearly');
 });
 
 Route::prefix('activity-log')->middleware(['can:activity-log-view','preventbackbutton'])->group(function(){

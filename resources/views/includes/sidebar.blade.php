@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-profile">
-      <a href="#" class="nav-link">
+      <a href="{{route('account.edit')}}" class="nav-link">
         <div class="text-wrapper">
           <p class="profile-name">{{ Auth::user()->email }}</p>
           <p class="designation">{{ implode(', ',Auth::user()->roles()->get()->pluck('name')->toArray()) }}</p>

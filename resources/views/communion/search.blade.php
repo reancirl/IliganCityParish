@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h2>Add Confirmation Record</h2>
+<h2>Add First Communion Record</h2>
 <a href="/first-communion">
   <button type="button" class="btn btn-outline-primary">
   	<i class="typcn typcn-arrow-left"></i>Go back

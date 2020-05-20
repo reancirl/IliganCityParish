@@ -38,9 +38,9 @@
                                 <button type="submit" class="btn btn--primary type--uppercase">{{ __('Login') }}</button> 
                             </div>
 
-                            <div class="col-12"> 
+                            <!-- <div class="col-12"> 
                                 <span class="type--fine-print block">Forgot your username or password? <a href="{{ route('password.request') }}">Recover account</a></span>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>

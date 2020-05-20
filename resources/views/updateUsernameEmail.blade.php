@@ -42,6 +42,6 @@
         </div>
     </div>
 </div>
-<button type="submit" class="btn btn-primary btn-lg btn-block">Update Account</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block">Update Info</button>
 </form>
 @endsection

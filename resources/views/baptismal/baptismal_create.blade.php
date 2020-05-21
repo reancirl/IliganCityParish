@@ -10,7 +10,16 @@
     </button>
   </a>
 	<hr style="border: 1px solid #0078ff;">
-
+@if (session()->has('error'))
+<div class="col-sm-12">
+    <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+      <strong>Sorry!</strong> {{ session()->get('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+</div>
+  @endif
 @if(count($errors)>0)
   <ul>
     @foreach($errors->all() as $error)
@@ -189,7 +198,7 @@
       <thead>
        <tr>
          <th>Sponsor Name</th>
-         <th>Gender</th>
+         <th>Type</th>
       
          <th><a href="#a" class="addRow btn btn-success"><i class="typcn typcn-plus"></i></a></th>
        </tr>
@@ -218,7 +227,7 @@
   <div class="col">
     <div class="form-group">
       <label for="facilitator_1">Primary Facilitator</label>
-      <input type="text" class="form-control" id="facilitator_1" name="facilitator_1" required autocomplete="off" value="{{ old('facilitator_1') }}">
+      <input type="text" class="form-control" id="facilitator_1" name="facilitator_1" required autocomplete="off" placeholder="Priest Name" value="{{ old('facilitator_1') }}">
     </div>
   </div>
 

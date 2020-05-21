@@ -35,7 +35,7 @@ class BaptismalController extends Controller
         'date_of_baptism' => 'required|min:8',
         'fathers_name' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
         'mothers_maiden_name' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
-        'parents_address' => 'required|regex:/^[\pL\s\-]+$/u|min:2',
+        'parents_address' => 'required|min:2',
         'contact_number' => 'required',
         'parents_type_of_marriage' => 'required',
         'sponsor_name'=>'required',
@@ -53,12 +53,20 @@ class BaptismalController extends Controller
         $baptismal->place_of_birth =$request->place_of_birth;
         $baptismal->place_of_baptism = $request->place_of_baptism;
         $baptismal->date_of_attending_seminar = $request->date_of_attending_seminar;
-        $baptismal->date_of_baptism = $request->date_of_baptism;
         $baptismal->fathers_name = $request->fathers_name;
         $baptismal->mothers_maiden_name = $request->mothers_maiden_name;
         $baptismal->parents_address = $request->parents_address;
         $baptismal->contact_number = $request->contact_number;
         $baptismal->parents_type_of_marriage = $request->parents_type_of_marriage;
+
+        $month = $request->date_of_baptism;
+        $baptismal->date_of_baptism = $month . ", " ."10:30-12:00";
+        $check = Baptismal::where('date_of_baptism', $baptismal->date_of_baptism)->count();
+        if($check != 0)
+        {
+            return redirect('baptismal/create')->with('error','Date and time already full.');
+        }
+        // return $baptismal->date_of_baptism;
 
         $baptismal->save();
 

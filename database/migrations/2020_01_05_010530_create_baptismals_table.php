@@ -31,7 +31,7 @@ class CreateBaptismalsTable extends Migration
             $table->string('parents_type_of_marriage');
 
             $table->date('date_of_attending_seminar');
-            $table->date('date_of_baptism');
+            $table->string('date_of_baptism');
             $table->timestamps();
         });
     }

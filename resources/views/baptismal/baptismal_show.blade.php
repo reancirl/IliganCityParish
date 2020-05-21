@@ -55,7 +55,7 @@
 		    </tr>
 		     <tr>
 		      <th scope="row">Date of Baptismal</th>
-		      <td>{{Carbon\Carbon::parse($baptismal->date_of_baptism)->formatLocalized('%b %d, %Y')}}</td>
+		      <td>{{$baptismal->date_of_baptism}}</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">Father's Name</th>

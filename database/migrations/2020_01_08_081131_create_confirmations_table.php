@@ -16,7 +16,7 @@ class CreateConfirmationsTable extends Migration
         Schema::create('confirmations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date_of_seminar');
-            $table->date('date_of_confirmation');
+            $table->string('date_of_confirmation');
             $table->string('church');
             $table->timestamps();
            

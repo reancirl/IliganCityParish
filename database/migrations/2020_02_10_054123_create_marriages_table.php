@@ -15,7 +15,7 @@ class CreateMarriagesTable extends Migration
     {
         Schema::create('marriages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date');
+            $table->string('date');
             $table->date('date_of_seminar');
             $table->string('church');
 
